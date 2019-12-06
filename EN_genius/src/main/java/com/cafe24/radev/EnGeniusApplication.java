@@ -1,4 +1,4 @@
-package teamproject.en.genius;
+package com.cafe24.radev;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

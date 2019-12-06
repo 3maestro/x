@@ -1,4 +1,4 @@
-package teamproject.en.genius;
+package com.cafe24.radev;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

@@ -1,4 +1,4 @@
-package en.genius;
+package com.cafe24.radev.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
