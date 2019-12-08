@@ -1,4 +1,4 @@
-package teamproject.en.genius;
+package com.cafe24.radev;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
