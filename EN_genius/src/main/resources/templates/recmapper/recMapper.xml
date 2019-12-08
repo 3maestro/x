@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cafe24.radev.mapper.RecMapper">
+	<select id="getRecList" resultType="com.cafe24.radev.vo.voRecRegister">
+		SELECT
+			 m_id 		as memberId
+			,m_pw 		as memberPw
+			,m_level 	as memberLevel
+			,m_name 	as memberName
+			,m_email 	as memberEmail
+		FROM
+			tb_member 
+	</select>
+</mapper>
