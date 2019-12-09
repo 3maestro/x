@@ -4,8 +4,7 @@ public class Check {
 	
 	private String ckBigName;
 	private String ckMidName;
-	private String ckBigCode;
-	
+
 	public String getCkBigName() {
 		return ckBigName;
 	}
@@ -18,16 +17,10 @@ public class Check {
 	public void setCkMidName(String ckMidName) {
 		this.ckMidName = ckMidName;
 	}
-	public String getCkBigCode() {
-		return ckBigCode;
-	}
-	public void setCkBigCode(String ckBigCode) {
-		this.ckBigCode = ckBigCode;
-	}
-	
 	@Override
 	public String toString() {
-		return "Check [ckBigName=" + ckBigName + ", ckMidName=" + ckMidName + ", ckBigCode=" + ckBigCode + "]";
+		return "Check [ckBigName=" + ckBigName + ", ckMidName=" + ckMidName + "]";
 	}
-		
+
+
 }

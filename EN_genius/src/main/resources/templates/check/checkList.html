@@ -14,21 +14,23 @@
 	$(document).ready(function(){
 		$('.checkBtn').click(function(){
 			var bigcate = $(this).val();
-			console.log(bigcate)
+			//console.log(bigcate)
 			
 			var request = $.ajax({
 			  url: "/checkList",	//호출될 url
 			  method: "get",
-			  data: { 'bigcate' : bigcate },//파라미터
+			  data: { bigcate : bigcate },//파라미터
 			  dataType: "json"		//응답 타입
 			});
 			 			
 			request.done(function( data ) {
-				
-				request.fail(function( jqXHR, textStatus ) {
-				  alert( "Request failed: " + textStatus );
-				});
-			});	
+				console.log(data)
+			})
+			
+			request.fail(function( jqXHR, textStatus ) {
+			  alert( "Request failed: " + textStatus );
+			});
+		});	
 	
 		/* $(document).ready(function(){
 			$('#checkEnBtn').click(function(){
@@ -50,21 +52,31 @@
 				   var bigcate = $(this).val();
 				   console.log(bigcate);
 				}); */
-			})
 		})
 	</script>
 </th:block>
 
 <th:block layout:fragment="customContents">
 	
+	<div>
+		<div style="float: left">
+			<ul >
+				<li><button class="checkBtn" value="엔진">엔진</button></li>
+				<li><button class="checkBtn" value="섀시">섀시</button></li>
+				<li><button class="checkBtn" value="전장">전장</button></li>
+				<li><button class="checkBtn" value="바디">바디</button></li>
+			</ul>
+		</div>
+
+	</div>
+<!-- 		<div style="float: right">
+			<ul th:each="l : ${checkList}">
+				<li th:text="${l.ckMidName}">1</li>
+			</ul>
+		</div> -->
 	
-		<ul >
-			<li><button class="checkBtn" value="엔진">엔진</button></li>
-			<li><button class="checkBtn" value="섀시">섀시</button></li>
-			<li><button class="checkBtn" value="전장">전장</button></li>
-			<li><button class="checkBtn" value="바디">바디</button></li>
-		</ul>
 		
+
 		
 	
 			

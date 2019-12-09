@@ -18,10 +18,11 @@
 		FROM
 			routine_inspection_tb
 	</select>
-	<!-- <select id="getCheckList" resultType="com.cafe24.radev.vo">
+	<select id="getCheckList" parameterType="String" 
+	 resultType="com.cafe24.radev.vo.Check">
 		SELECT
-			b.ck_big_name,
-			m.ck_mid_name
+			b.ck_big_name as ckBigName,
+			m.ck_mid_name as ckMidName
 		FROM 
 			check_bigcate_tb AS b
 		INNER join
@@ -29,7 +30,7 @@
 		ON 
 			b.ck_big_code = m.ck_big_code
 		WHERE 
-			m.ck_big_name = '엔진'
-	</select> -->
-	
+			b.ck_big_name = #{bigcate}
+	</select>
+			
 </mapper>
