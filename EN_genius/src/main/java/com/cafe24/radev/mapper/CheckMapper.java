@@ -1,6 +1,6 @@
 package com.cafe24.radev.mapper;
 
-import java.util.List;
+import java.util.*;
 
 import org.apache.ibatis.annotations.Mapper;
 
