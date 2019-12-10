@@ -1,64 +1,75 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:layout="http://www.ultraq.net.nz/tdymeleaf/layout"
 	layout:decorate="~{layout/default}">
 
 	<th:block layout:fragment="customTitle">
 		<title>EN_genius 고객 목록</title>
 	</th:block>
 	<th:block layout:fragment="customContents">
-		<h1>고객목록</h1>
-		<table border="1" style="width: 100%">
-			<tr>
-				<td>
-					고객코드
-				</td>
-				<td>
-					고객명
-				</td>
-				<td>
-					고객생일
-				</td>
-				<td>
-					고객성별
-				</td>
-				<td>
-					고객주소
-				</td>
-				<td>
-					고객연락처
-				</td>
-				<td>
-					고객등록일
-				</td>
-				<td>
-					고객메모
-				</td>
-				<td>
-					고객수정
-				</td>
-				<td>
-					고객삭제
-				</td>
-			</tr>
-			<tr th:each="l : ${customerList}">
-				<td th:text="${l.customerCode}"></td>
-				<td th:text="${l.customerName}"></td>
-				<td th:text="${l.customerBirth}"></td>
-				<td th:text="${l.customerGender}"></td>
-				<td th:text="${l.customerAddr}"></td>
-				<td th:text="${l.customerPhone}"></td>
-				<td th:text="${l.customerSign}"></td>
-				<td th:text="${l.customerMemo}"></td>
-				<td>
-					<!-- /modifyMember?memberId="값"&memberPw="값" -->ㅇ
-<!-- 					<a th:href="@{/modifyMember(memberId=${l.memberId})}">수정</a> -->
-				</td>
-				<td>ㄹ
-<!-- 					<a th:href="@{/delMember(memberId=${l.memberId})}">삭제</a> -->
-				</td>
-			</tr>
-		</table>
+		<div class="card">
+			<div class="card-header">
+				<strong class="card-title">
+					고객목록
+				</strong>
+			</div>
+			<div class="card-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">
+								고객코드
+							</th>
+							<th scope="col">
+								고객명
+							</th>
+							<th scope="col">
+								고객생일
+							</th>
+							<th scope="col">
+								고객성별
+							</th>
+							<th scope="col">
+								고객주소
+							</th>
+							<th scope="col">
+								고객연락처
+							</th>
+							<th scope="col">
+								고객등록일
+							</th>
+							<th scope="col">
+								고객메모
+							</th>
+							<th scope="col">
+								고객수정
+							</th>
+							<th scope="col">
+								고객삭제
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="l : ${customerList}">
+							<td th:text="${l.customerCode}"></td>
+							<td th:text="${l.customerName}"></td>
+							<td th:text="${l.customerBirth}"></td>
+							<td th:text="${l.customerGender}"></td>
+							<td th:text="${l.customerAddr}"></td>
+							<td th:text="${l.customerPhone}"></td>
+							<td th:text="${l.customerSign}"></td>
+							<td th:text="${l.customerMemo}"></td>
+							<td>
+								o
+							</td>
+							<td>
+								ㄹ
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</th:block>
 </html>
 
