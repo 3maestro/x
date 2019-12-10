@@ -29,4 +29,11 @@ public class CustomerController {
 		
 		return "/customer/customerList";
 	}
+	
+	@GetMapping("/customerInsert")
+	public String getCustomerInsert(Model model, Customer customer) {
+		System.out.println(customer);
+		
+		return "/customer/customerList";
+	}
 }

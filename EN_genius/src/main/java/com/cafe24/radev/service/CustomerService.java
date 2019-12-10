@@ -22,4 +22,8 @@ public class CustomerService {
 		List<Customer> list = customerMapper.getCustomerList();
 		return list;
 	}
+	
+	public void getCustomerInsert() {
+		customerMapper.getCustomerInsert();
+	}
 }

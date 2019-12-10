@@ -1,92 +1,92 @@
 package com.cafe24.radev.vo;
 
 public class Customer {
-	private String customer_code;
-	private String bs_code;
-	private String ei_code;
-	private String customer_sign;
-	private String customer_name;
-	private String customer_birth;
-	private String customer_gender;
-	private String customer_addr;
-	private String customer_phone;
-	private String customer_memo;
+	private String customerCode;
+	private String bsCode;
+	private String eiCode;
+	private String customerSign;
+	private String customerName;
+	private String customerBirth;
+	private String customerGender;
+	private String customerAddr;
+	private String customerPhone;
+	private String customerMemo;
 	
-	public String getCustomer_code() {
-		return customer_code;
+	public String getCustomerCode() {
+		return customerCode.replace(bsCode+"_", "");
 	}
-	public void setCustomer_code(String customer_code) {
-		this.customer_code = customer_code;
-	}
-	
-	public String getBs_code() {
-		return bs_code;
-	}
-	public void setBs_code(String bs_code) {
-		this.bs_code = bs_code;
+	public void setCustomerCode(String customerCode) {
+		this.customerCode = customerCode;
 	}
 	
-	public String getEi_code() {
-		return ei_code;
+	public String getBsCode() {
+		return bsCode;
 	}
-	public void setEi_code(String ei_code) {
-		this.ei_code = ei_code;
-	}
-	
-	public String getCustomer_sign() {
-		return customer_sign;
-	}
-	public void setCustomer_sign(String customer_sign) {
-		this.customer_sign = customer_sign;
+	public void setBsCode(String bsCode) {
+		this.bsCode = bsCode;
 	}
 	
-	public String getCustomer_name() {
-		return customer_name;
+	public String getEiCode() {
+		return eiCode;
 	}
-	public void setCustomer_name(String customer_name) {
-		this.customer_name = customer_name;
-	}
-	
-	public String getCustomer_birth() {
-		return customer_birth;
-	}
-	public void setCustomer_birth(String customer_birth) {
-		this.customer_birth = customer_birth;
+	public void setEiCode(String eiCode) {
+		this.eiCode = eiCode;
 	}
 	
-	public String getCustomer_gender() {
-		return customer_gender;
+	public String getCustomerSign() {
+		return customerSign;
 	}
-	public void setCustomer_gender(String customer_gender) {
-		this.customer_gender = customer_gender;
-	}
-	
-	public String getCustomer_addr() {
-		return customer_addr;
-	}
-	public void setCustomer_addr(String customer_addr) {
-		this.customer_addr = customer_addr;
+	public void setCustomerSign(String customerSign) {
+		this.customerSign = customerSign;
 	}
 	
-	public String getCustomer_phone() {
-		return customer_phone;
+	public String getCustomerName() {
+		return customerName;
 	}
-	public void setCustomer_phone(String customer_phone) {
-		this.customer_phone = customer_phone;
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 	
-	public String getCustomer_memo() {
-		return customer_memo;
+	public String getCustomerBirth() {
+		return customerBirth;
 	}
-	public void setCustomer_memo(String customer_memo) {
-		this.customer_memo = customer_memo;
+	public void setCustomerBirth(String customerBirth) {
+		this.customerBirth = customerBirth;
+	}
+	
+	public String getCustomerGender() {
+		return customerGender;
+	}
+	public void setCustomerGender(String customerGender) {
+		this.customerGender = customerGender;
+	}
+	
+	public String getCustomerAddr() {
+		return customerAddr;
+	}
+	public void setCustomerAddr(String customerAddr) {
+		this.customerAddr = customerAddr;
+	}
+	
+	public String getCustomerPhone() {
+		return customerPhone;
+	}
+	public void setCustomerPhone(String customerPhone) {
+		this.customerPhone = customerPhone;
+	}
+	
+	public String getCustomerMemo() {
+		return customerMemo;
+	}
+	public void setCustomerMemo(String customerMemo) {
+		this.customerMemo = customerMemo;
 	}
 	
 	@Override
 	public String toString() {
-		return "Customer [customer_code=" + customer_code + ", bs_code=" + bs_code + ", ei_code=" + ei_code
-				+ ", customer_sign=" + customer_sign + ", customer_name=" + customer_name + ", customer_birth="
-				+ customer_birth + ", customer_gender=" + customer_gender + ", customer_addr=" + customer_addr
-				+ ", customer_phone=" + customer_phone + ", customer_memo=" + customer_memo + "]";
+		return "Customer [customerCode=" + customerCode + ", bsCode=" + bsCode + ", eiCode=" + eiCode
+				+ ", customerSign=" + customerSign + ", customerName=" + customerName + ", customerBirth="
+				+ customerBirth + ", customerGender=" + customerGender + ", customerAddr=" + customerAddr
+				+ ", customerPhone=" + customerPhone + ", customerMemo=" + customerMemo + "]";
 	}
 }

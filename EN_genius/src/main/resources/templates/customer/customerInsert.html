@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+
+	<th:block layout:fragment="customTitle">
+		<title>EN_genius 고객 등록</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		<h1>고객등록</h1>
+		<table border="1" style="width: 100%">
+			<tr>
+				<td>
+					고객명
+				</td>
+				<td>
+					<input type="text" name="customerName">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					고객생일
+				</td>
+				<td>
+					<input type="date" name="customerBirth">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					고객성별
+				</td>
+				<td>
+					<input type="radio" name="customerGender" value="남">남
+					<input type="radio" name="customerGender" value="여">여
+				</td>
+			</tr>
+			<tr>
+				<td>
+					고객연락처
+				</td>
+				<td>
+					<input type="tel" name="customerPhone">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					고객주소
+				</td>
+				<td>
+					<input type="text" name="customerPhone">
+				</td>
+			</tr>
+		</table>
+	</th:block>
+</html>
+
