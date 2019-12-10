@@ -16,8 +16,11 @@ public class CarController {
 	
 	@Autowired	private CarService carService;
 
+	
+	
 	@GetMapping("carRegister")
 	public String carRegister(Model model) {
+		
 		System.out.println(model + "@#@#@#@#@@##@#@@##@@@@@333333333333");
 		return "carregister/carRegister";
 	}
