@@ -3,6 +3,7 @@ package com.cafe24.radev.vo;
 public class voCarRegister {
 
 	private String customerCarInfoCode;
+	private String bsCode;
 	private String customerCode;
 	private String customerCarNumber;
 	private String rcCode;
@@ -19,6 +20,12 @@ public class voCarRegister {
 	}
 	public void setCustomerCarInfoCode(String customerCarInfoCode) {
 		this.customerCarInfoCode = customerCarInfoCode;
+	}
+	public String getBsCode() {
+		return bsCode;
+	}
+	public void setBsCode(String bsCode) {
+		this.bsCode = bsCode;
 	}
 	public String getCustomerCode() {
 		return customerCode;
@@ -82,14 +89,13 @@ public class voCarRegister {
 	}
 	@Override
 	public String toString() {
-		return "voCarRegister [customerCarInfoCode=" + customerCarInfoCode + ", customerCode=" + customerCode
-				+ ", customerCarNumber=" + customerCarNumber + ", rcCode=" + rcCode + ", vendorCode=" + vendorCode
-				+ ", carProductionYear=" + carProductionYear + ", carRegistrationDate=" + carRegistrationDate
-				+ ", lastDistanceDriven=" + lastDistanceDriven + ", lastVisitDate=" + lastVisitDate
-				+ ", customerCarInfoWriter=" + customerCarInfoWriter + ", customerCarInfoDate=" + customerCarInfoDate
-				+ "]";
+		return "voCarRegister [customerCarInfoCode=" + customerCarInfoCode + ", bsCode=" + bsCode + ", customerCode="
+				+ customerCode + ", customerCarNumber=" + customerCarNumber + ", rcCode=" + rcCode + ", vendorCode="
+				+ vendorCode + ", carProductionYear=" + carProductionYear + ", carRegistrationDate="
+				+ carRegistrationDate + ", lastDistanceDriven=" + lastDistanceDriven + ", lastVisitDate="
+				+ lastVisitDate + ", customerCarInfoWriter=" + customerCarInfoWriter + ", customerCarInfoDate="
+				+ customerCarInfoDate + "]";
 	}
-
 	
 	
 	

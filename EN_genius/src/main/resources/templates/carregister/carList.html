@@ -31,6 +31,8 @@
                                             <th>마지막 방문시 주행거리</th>
                                             <th>작성자</th>
                                             <th>작성일자</th>
+                                            <th>수정</th>
+                                            <th>삭제</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -45,7 +47,8 @@
                                             <td th:text="${CL.lastDistanceDriven}"></td>
                                             <td th:text="${CL.lastVisitDate}"></td>
                                             <td th:text="${CL.customerCarInfoWriter}"></td>
-                                            <td th:text="${CL.customerCarInfoDate}"></td>                                            
+                                            <td th:text="${CL.customerCarInfoDate}"></td>    
+                                            <td><a th:href="@{/carUpdate(cus=${CL.customerCarInfoCode})}">수정</a></td>                                        
                                         </tr>
                                        
                                        
