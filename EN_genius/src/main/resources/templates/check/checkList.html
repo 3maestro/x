@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- layout:decorate 레이아웃 활용을 위한 속성 -->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+      
+<th:block layout:fragment="customTitle">
+	<title>표준정기점검표</title>
+</th:block>
+
+<th:block layout:fragment="customScript">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.checkBtn').click(function(){
+			var bigcate = $(this).val();
+			console.log(bigcate)
+			
+			var request = $.ajax({
+			  url: "/checkList",	//호출될 url
+			  method: "get",
+			  data: { 'bigcate' : bigcate },//파라미터
+			  dataType: "json"		//응답 타입
+			});
+			 			
+			request.done(function( data ) {
+				
+				request.fail(function( jqXHR, textStatus ) {
+				  alert( "Request failed: " + textStatus );
+				});
+			});	
+	
+		/* $(document).ready(function(){
+			$('#checkEnBtn').click(function(){
+			   var bigcate = $(this).val();
+			   console.log(bigcate);
+			});
+			
+			$('#checkSeBtn').click(function(){
+				   var bigcate = $(this).val();
+				   console.log(bigcate);
+				});
+			
+			$('#checkElBtn').click(function(){
+				   var bigcate = $(this).val();
+				   console.log(bigcate);
+				});
+			
+			$('#checkBoBtn').click(function(){
+				   var bigcate = $(this).val();
+				   console.log(bigcate);
+				}); */
+			})
+		})
+	</script>
+</th:block>
+
+<th:block layout:fragment="customContents">
+	
+	
+		<ul >
+			<li><button class="checkBtn" value="엔진">엔진</button></li>
+			<li><button class="checkBtn" value="섀시">섀시</button></li>
+			<li><button class="checkBtn" value="전장">전장</button></li>
+			<li><button class="checkBtn" value="바디">바디</button></li>
+		</ul>
+		
+		
+	
+			
+	
+			
+	
+
+
+	
+
+</th:block>
+
+</html>
