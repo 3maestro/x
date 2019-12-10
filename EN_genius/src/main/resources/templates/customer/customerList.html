@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+
+	<th:block layout:fragment="customTitle">
+		<title>EN_genius 고객 목록</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		<table border="1">
+			<tr>
+				<td>아이디</td>
+				<td>비밀번호</td>
+				<td>권한</td>
+				<td>이름</td>
+				<td>이메일</td>
+				<td>수정</td>
+				<td>삭제</td>
+			</tr>
+			<tr th:each="l : ${customerList}">
+				<td th:text="${l.bs_code}"></td>
+				<td th:text="${l.ei_code}"></td>
+				<td th:text="${l.customer_sign}"></td>
+				<td th:text="${l.customer_name}"></td>
+				<td th:text="${l.customer_birth}"></td>
+				<td th:text="${l.customer_gender}"></td>
+				<td th:text="${l.customer_addr}"></td>
+				<td th:text="${l.customer_phone}"></td>
+				<td th:text="${l.customer_memo}"></td>
+				<td>
+					<!-- /modifyMember?memberId="값"&memberPw="값" -->
+					<a th:href="@{/modifyMember(memberId=${l.memberId})}">수정</a>
+				</td>
+				<td>
+					<a th:href="@{/delMember(memberId=${l.memberId})}">삭제</a>
+				</td>
+			</tr>
+		</table>
+	</th:block>
+</html>
+

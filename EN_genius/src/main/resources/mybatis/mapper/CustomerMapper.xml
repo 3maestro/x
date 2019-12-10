@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.or.ksmart.ksmart33_springboot_mybatis.mapper.MemberMapper">
+	<select id="getCustomerList" resultType="kr.or.ksmart.ksmart33_springboot_mybatis.vo.Member">
+	  	SELECT 
+			customer_code
+			,bs_code
+			,ei_code
+			,customer_sign
+			,customer_name
+			,customer_birth
+			,customer_gender
+			,customer_addr
+			,customer_phone
+			,customer_memo
+		FROM customer_tb
+	</select>
+</mapper>
