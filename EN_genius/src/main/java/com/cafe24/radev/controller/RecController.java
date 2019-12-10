@@ -44,4 +44,13 @@ public class RecController {
 		
 		return "receptionregister/recList";
 	}
+	
+	@GetMapping("dustmq")
+	public String dustmq(Model model) {
+			
+		
+		
+		
+		return "receptionregister/dustmq";
+	}
 }
