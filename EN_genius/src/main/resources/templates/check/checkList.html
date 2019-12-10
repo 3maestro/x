@@ -26,9 +26,14 @@
 			request.done(function( data ) {
 				for(var i=0; i<data.length; i++){
 					var map = data[i];
-					console.log(map.engine);
+					//console.log(map.chassis);
 					
-					
+/* 					if(map == 'engine'){
+						$('.test').append('<button class="checkBtn" value="'+ map.engine +'">'+map.engine+'</button><br>')	
+					}else if(map.chassis == 'chassis'){
+						$('.test').append('<button class="checkBtn" value="'+ map.chassis +'">'+map.chassis+'</button><br>')	
+					}
+*/
 					
 // 					for(var j=0; j<map.length; j++){
 // 						var a = map[j]
@@ -87,10 +92,9 @@
 				<li><button class="checkBtn" value="body">바디</button></li>
 			</ul>
 		</div>
-		<div>
+		<div class="test">
 			<ul>
-				<li></li>
-				<li><button class="checkBtn" id="test" style="display: none" value="test">test</button></li>			
+							
 			</ul>
 		</div>
 	</div>
