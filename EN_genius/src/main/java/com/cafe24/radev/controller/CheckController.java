@@ -41,7 +41,7 @@ public class CheckController {
 	 
 	 @PostMapping(value="/checkList2", produces = "application/json")
 	 public @ResponseBody List<Map<String, Object>> checkList(
-			 @RequestParam(value="bigcate", defaultValue = "엔진", required=false) String bigcate) {
+			 @RequestParam(value="bigcate", defaultValue = "engine", required=false) String bigcate) {
 		
 		 System.out.println("checkList CheckController 호출"); 
 		 System.out.println("대분류 : " + bigcate);

@@ -26,19 +26,16 @@
 			request.done(function( data ) {
 				for(var i=0; i<data.length; i++){
 					var map = data[i];
-					console.log(map.engine);
-					
-					
-					
+					console.log(map);
 // 					for(var j=0; j<map.length; j++){
 // 						var a = map[j]
 // 						console.log(a);
 // 					}
-				
+				console.log(map.value());
 				}	
 				
 			
-				console.log(data)
+				console.log(JSON.stringify(data))
 				//var midName = data.get(1);
 				//console.log(midName);
 			})
@@ -80,16 +77,10 @@
 	<div>
 		<div style="float: left">
 			<ul>
-				<li><button class="checkBtn" value="engine">엔진</button></li>
-				<li><button class="checkBtn" value="chassis">섀시</button></li>
-				<li><button class="checkBtn" value="transmission">변속기</button></li>
-				<li><button class="checkBtn" value="electric">전장</button></li>
-				<li><button class="checkBtn" value="body">바디</button></li>
-			</ul>
-		</div>
-		<div>
-			<ul>
-				<li></li>
+				<li><button class="checkBtn" value="엔진">엔진</button></li>
+				<li><button class="checkBtn" value="섀시">섀시</button></li>
+				<li><button class="checkBtn" value="전장">전장</button></li>
+				<li><button class="checkBtn" value="바디">바디</button></li>
 				<li><button class="checkBtn" id="test" style="display: none" value="test">test</button></li>			
 			</ul>
 		</div>
