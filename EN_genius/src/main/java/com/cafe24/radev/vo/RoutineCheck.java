@@ -1,7 +1,7 @@
 package com.cafe24.radev.vo;
 
 public class RoutineCheck {
-
+	
 	private String riCode;
 	private String bsCode;
 	private String riItem;
