@@ -13,7 +13,7 @@
 					</a>
 				</li>
 				<li class="menu-title">
-					UI elements
+					최영진
 				</li>
 				<!-- /.menu-title -->
 				<li class="menu-item-has-children dropdown">
@@ -26,40 +26,71 @@
 						<li>
 							<i class="fa fa-puzzle-piece">
 							</i>
-							<a href="/customerList">
+							<a th:href="@{/customerList}">
 								고객조회
 							</a>
 						</li>
 						<li>
 							<i class="fa fa-id-badge">
 							</i>
-							<a href="/customerInsertPage">
-								고객등록
+							<a th:href="@{/customerInsertPage}">
+								#고객등록
 							</a>
 						</li>
 						<li>
 							<i class="fa fa-bars">
 							</i>
-							<a href="ui-tabs.html">
-								Tabs
+							<a th:href="@{/customerVisit}">
+								!방문내역
 							</a>
 						</li>
-
-						<li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
-						<li><i class="fa fa-exclamation-triangle"></i><a
-							href="ui-alerts.html">Alerts</a></li>
-						<li><i class="fa fa-spinner"></i><a
-							href="ui-progressbar.html">Progress Bars</a></li>
-						<li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
-						<li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
-						<li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
-						<li><i class="fa fa-file-word-o"></i><a
-							href="ui-typgraphy.html">Typography</a></li>
-					</ul></li>
-				<li class="menu-item-has-children dropdown"><a href="#"
-					class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <i class="menu-icon fa fa-table"></i>#직원관리
-				</a>
+						<li>
+							<i class="fa fa-puzzle-piece">
+							</i>
+							<a th:href="@{/customerList}">
+								#이벤트 달력
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="menu-item-has-children dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="menu-icon fa fa-cogs">
+						</i>
+						#SMS
+					</a>
+					<ul class="sub-menu children dropdown-menu">
+						<li>
+							<i class="fa fa-puzzle-piece">
+							</i>
+							<a th:href="@{/customerList}">
+								#SMS 예약어 관리
+							</a>
+						</li>
+						<li>
+							<i class="fa fa-id-badge">
+							</i>
+							<a th:href="@{/customerInsertPage}">
+								#SMS 발송
+							</a>
+						</li>
+						<li>
+							<i class="fa fa-bars">
+							</i>
+							<a th:href="@{/customerVisit}">
+								#SMS 발송내역
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="menu-title">Icons</li>
+				<!-- /.menu-title -->
+				<li class="menu-item-has-children dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="menu-icon fa fa-table">
+						</i>
+						#직원관리
+					</a>
 					<ul class="sub-menu children dropdown-menu">
 						<li><i class="fa fa-table"></i><a href="tables-basic.html">Basic
 								Table</a></li>
@@ -77,8 +108,7 @@
 							href="forms-advanced.html">Advanced Form</a></li>
 					</ul></li>
 
-				<li class="menu-title">Icons</li>
-				<!-- /.menu-title -->
+				
 
 				<li class="menu-item-has-children dropdown"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"

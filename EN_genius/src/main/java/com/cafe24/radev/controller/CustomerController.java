@@ -36,6 +36,18 @@ public class CustomerController {
 		return "/customer/customerList";
 	}
 	
+	@GetMapping("/customerVisit")
+	public String getCustomerVisit(Model model) {
+		System.out.println("Visit");
+		return "/customer/customerVisit";
+	}
+	
+	@GetMapping("/customerSMS")
+	public String getCustomerSMS(Model model) {
+		System.out.println("SMS");
+		return "/customer/customerSMS";
+	}
+	
 	@GetMapping("/customerInsertPage")
 	public String getCustomerInsert() {
 		return "/customer/customerInsert";
