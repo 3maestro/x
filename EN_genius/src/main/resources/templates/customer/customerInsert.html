@@ -22,30 +22,36 @@
 						<label>
 							고객 생일
 						</label>
-						<input type="date" class="form-control" placeholder="Email">
+						<input type="date" class="form-control">
 					</div>
 				</div>
 				<div class="row">
-					<div class="form-group col-lg-3">
+					<div class="form-group col-lg-6">
 						<label>
 							고객 성별
 						</label>
 						<div class="form-control">
 							<div class="row">
-								<div class="col-lg-6">
+								<div class="col-lg-6" style="width: 50%;text-align: center">
 									<input type="radio" name="customerGender" value="남">남
 								</div>
-								<div class="col-lg-6">
+								<div class="col-lg-6" style="width: 50%;text-align: center">
 									<input type="radio" name="customerGender" value="여">여
 								</div>
 							</div>
 						</div>
 					</div>
+					<div class="form-group col-lg-6">
+						<label>
+							고객 연락처
+						</label>
+						<input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+					</div>
 				</div>
 				<div class="checkbox">
 					<label>
 						<input type="checkbox">
-						Agree the terms and policy
+						문자 수신 동의
 					</label>
 				</div>
 				<button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
