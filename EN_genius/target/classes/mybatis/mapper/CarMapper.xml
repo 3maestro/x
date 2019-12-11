@@ -42,7 +42,6 @@
 				customer_code,
 				customer_car_number,
 				vendor_code,
-				
 				last_distance_driven)
 		VALUES(
 				#{customerCarInfoCode},
@@ -59,6 +58,7 @@
 			bs_code AS bsCode,
 			customer_code AS customerCode,
 			customer_car_number AS customerCarNumber,
+			rc_code as rcCode,
 			vendor_code AS vendorCode,
 			rc_code AS rcCode,
 			car_production_year AS carProductionYear,
