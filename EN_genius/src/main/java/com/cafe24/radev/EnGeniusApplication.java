@@ -9,5 +9,5 @@ public class EnGeniusApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EnGeniusApplication.class, args);
 	}
-
+	
 }
