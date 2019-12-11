@@ -11,25 +11,66 @@
 <th:block layout:fragment="customScript">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript">
+		
 		$(document).ready(function(){
+		    
+			
+
 			$('#periodBtn').click(function(){
-			   var period = $(this).val();
-			   console.log(period);
+				
+				var check = $("input:checkbox[name='check']:checked").val()
+
+		
+				if(check == "undefined" || check == null){
+					alert('항목을 체크 하시오.')
+				}else{
+					console.log(check)
+				}
+				
+				
+				var request = $.ajax({
+					  url: "/",	//호출될 url
+					  method: "POST",
+					  data: {},//파라미터
+					  dataType: "json"		//응답 타입
+					});
+					 			
+// 					request.done(function( data ) {
+						
+					
+						
+					
+// 						console.log(data)
+
+// 					})
+					
+// 					request.fail(function( jqXHR, textStatus ) {
+// 					  //alert( "Request failed: " + textStatus );
+// 					});
+
+					
+ 				});	
+
 			   
-			   if(period.equals('period')){
-			   }
-			   
-			});
 			
 		})
+		
+		$(document).on('click','#checkall',function(){
+				if($("#checkall").prop("checked")){
+				    $("input[name=check]").prop("checked",true);
+				}else{
+					$("input[name=check]").prop("checked",false);
+				}
+			})
+		
 	</script>
 </th:block>	
       
 <th:block layout:fragment="customContents">
-	<form action="#">
+
 		<div>
 			<h1>정기 점검표</h1>
-			<button style="float:right" id="periodBtn" value="period">교환주기 조회</button>	
+				<button style="float:right;" id="periodBtn" value="period">교환주기 조회</button>
 			<br>
 		</div>
 		
@@ -40,19 +81,18 @@
 				<td>교환목록</td>
 				<td>거리별 교환주기</td>
 				<td>기간별 교환주기</td>
-				<td class="checkBox">체크항목</td>
+				<!-- <td>전체선택<input type="checkbox" id="checkall"></td> -->
+				 
+				<td><input type="checkbox" id="checkall"> <label>전체선택</label></td>
 			</tr>
 			<tr th:each="l : ${routineCheckList}">
-				<td th:text="${l.riItem}"></td>
-				<td th:text="${l.distanceCycle}"></td>
-				<td th:text="${l.periodCycle}"></td>
-				<td><input type="checkbox" class="checkBox"></td>
+				<td th:value = "${l.riItem}" th:text = "${l.riItem}" ></td>
+				<td th:value = "${l.distanceCycle}" th:text="${l.distanceCycle}"></td>
+				<td th:value = "${l.periodCycle}" th:text="${l.periodCycle}"></td>
+				<td><input type="checkbox" class="checkBox" name="check" th:value="${l.periodCycle}"></td>
 			</tr>
 		</table>
-	
-		<input type="submit" class="checkBox" value="전송">
-	</form>
-	
+
 </th:block>
       
 </html>
