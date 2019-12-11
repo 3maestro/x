@@ -31,27 +31,30 @@ public class CheckController {
 		return "/check/routineCheckList";
 	}
 	
+	@GetMapping("/basicCheckList")
+	public String basicCheckList() {
+		return "/check/basicCheckList";
+	}
 	
 	//@ResponseBody Map<String, Object>
 	//@ResponseBody List<Map<String, Object>>
-	 @GetMapping("/checkList") 
-	 public String checkList() {
-		 return "/check/checkList";
-	 }
+	@GetMapping("/diagnosisGuide") 
+	public String checkList() {
+		return "/check/diagnosisGuide";
+	}
 	 
-	 @PostMapping(value="/checkList2", produces = "application/json")
-	 public @ResponseBody List<Map<String, Object>> checkList(
+	@PostMapping(value="/checkList", produces = "application/json")
+	public @ResponseBody List<Map<String, Object>> checkList(
 			 @RequestParam(value="bigcate", defaultValue = "engine", required=false) String bigcate) {
 		
-		 System.out.println("checkList CheckController 호출"); 
-		 System.out.println("대분류 : " + bigcate);
+		System.out.println("checkList CheckController 호출"); 
+		System.out.println("대분류 : " + bigcate);
 		 
-		 List<Map<String, Object>> checkMap = checkService.getCheckList(bigcate);
-		 System.out.println(checkMap + " <-checkMap checkList CheckController.java");
+		List<Map<String, Object>> checkMap = checkService.getCheckList(bigcate);
+		System.out.println(checkMap + " <-checkMap checkList CheckController.java");
 		 
-//		 return checkMap;
-//		 return "/check/checkList";
-		 return checkMap;
-	 }
-	 
+
+		return checkMap;
+	}
+ 
 }
