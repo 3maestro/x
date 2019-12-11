@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.radev.service.CarService;
-import com.cafe24.radev.vo.voCarRegister;
+import com.cafe24.radev.vo.VoCarRegister;
 
 @Controller
 public class CarController {
@@ -22,15 +22,14 @@ public class CarController {
 
 	@GetMapping("carUpdate")
 	public String carUpdate(@RequestParam(value="cus", required = false)String cuscar) {
-		//carService.getCarUpdate(cuscar);
-		System.out.println("값확인" + cuscar);
+		System.out.println(cuscar + "값확인");
 		
 		return "carregister/carUpdate";
 		
 	}
 	
 	@PostMapping("carRegister")
-	public String carRegister(voCarRegister vcreg) {
+	public String carRegister(VoCarRegister vcreg) {
 		System.out.println(vcreg + "차량등록 값 확인");
 		
 		carService.getCarInsert(vcreg);
@@ -47,25 +46,16 @@ public class CarController {
 	}
 	
 	@GetMapping("/carList")
-	public String carList(voCarRegister vcreg, Model model) {
+	public String carList(VoCarRegister vcreg, Model model) {
 
-		List<voCarRegister> List = carService.getCarList();
+		List<VoCarRegister> List = carService.getCarList();
 		System.out.println("값확인" + List);
 		model.addAttribute("vcreg", List); //어트리뷰트 : 어딘가에 등록이 되어있다
-		//System.out.println(vcreg + "@#@#@#@#@@##@#@@##@@@@@222222222");
 		return "carregister/carList";
 		
 	}
 	
 	
-	/* @PostMapping("carList") */
-	/*public String carList(voCarRegister vcreg,Model model) {
-	
-		model.addAttribute("vcreg", vcreg);
-		//System.out.println(model.toString() + "@#@#@#@#@@##@#@@##@@@@@1111111111");
-		return "carregister/carList";
-		
-	}
-	*/
+
 
 }
