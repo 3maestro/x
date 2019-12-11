@@ -44,7 +44,10 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>#점검,진단</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font Awesome</a></li>
+                            <li><i class="menu-icon fa fa-fort-awesome"></i><a th:href="@{/routineCheckList}">표준정기점검표</a></li>
+                            <li><i class="menu-icon ti-themify-logo"></i><a th:href="@{/checkList}">점검리스트</a></li>
+                            <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
+                            <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
                             <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
                         </ul>
                     </li>
@@ -52,19 +55,19 @@
                         <a href="widgets.html"> <i class="menu-icon ti-email"></i>#정비,공임 </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>#부품</a>
+                        <a href="/partMain" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#부품</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a href="/part/partList">부품목록</a></li>
-                            <li><i class="menu-icon fa fa-area-chart"></i><a href="charts-flot.html">Flot Chart</a></li>
-                            <li><i class="menu-icon fa fa-pie-chart"></i><a href="charts-peity.html">Peity Chart</a></li>
+                            <li><a href="/partList">!부품목록</a></li>
+                            <li><a href="/partInsert">!부품등록</a></li>
+                            <li><a href="/partOrder">!부품구매</a></li>
+                            <li><a href="/partEstimate">#부품견적</a></li>
                         </ul>
                     </li>
-
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>#거래처</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#거래처</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html">Google Maps</a></li>
-                            <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Vector Maps</a></li>
+                            <li><a href="/storeList">#거래처목록</a></li>
+                            <li><a href="/storeInsert">#거래처등록</a></li>
                         </ul>
                     </li>
                     <li class="menu-title">Extras</li><!-- /.menu-title -->
