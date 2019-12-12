@@ -57,6 +57,38 @@ public class PartController {
 		return"/part/partInsert";
 	}
 	/**
+	 * 부품로우하나조회 ajax
+	 * selectForOrder()
+	 * @param partValue
+	 * @return
+	 */
+	@PostMapping(value = "/serchPartCall", produces = "application/json")
+	public @ResponseBody Part serchPartCall(
+			@RequestParam(value = "partValue", defaultValue = "1", required = false)String partValue
+			){
+		System.out.println("부품로우조회ajax호출/controller");
+		System.out.println(partValue+"<-paramr/ajax호출/controller");
+			
+		
+		return partService.partSelectForOrder(partValue);
+	}
+	
+	/**
+	 * 신규부품등록처리
+	 * @param parts
+	 * @param session
+	 * @return
+	 */
+	@GetMapping("/partInsertPro")
+	public String partInsertPro(Part parts, HttpSession session) {
+		//등록자입력을 위한 세션값
+		//String id = (String)session.getAttribute("userId");
+		System.out.println(parts.getPartName()+"<<<부품등록값");
+		partService.partInsertPro(parts);
+		
+		return"redirect:/partInsert";
+	}
+	/**
 	 * ajax로 대분류에맞는 중분류값 호출
 	 * @param fVal
 	 * @return
@@ -70,21 +102,6 @@ public class PartController {
 		
 		
 		return partService.selectSecondDate(fVal);
-	}
-	
-	/**
-	 * 부품등록처리
-	 * @param parts
-	 * @param session
-	 * @return
-	 */
-	@PostMapping("/partInsert")
-	public String insertParts(Part parts, HttpSession session) {
-		//등록자입력을 위한 세션값
-		//String id = (String)session.getAttribute("userId");
-		
-		
-		return"redirect:/part/partList";
 	}
 	/**
 	 * 부품주문호출
@@ -131,5 +148,14 @@ public class PartController {
 		
 		return "/part/partEstimate";
 	}
-	
+	/**
+	 * 부품업데이트
+	 * @param part
+	 * @return
+	 */
+	@GetMapping("/partUpdate")
+	public String partUpdate(Part part) {
+		
+		return null;
+	}
 }
