@@ -51,5 +51,12 @@
 		values
 			(#{partNumber},#{factory},#{bigCate},#{midCate},#{partName},#{partMany},#{partPrice},#{partWrite},#{partUpdateDate})
 	</insert>
-	
+	<update id="partUpdateforMany" parameterType="com.cafe24.radev.vo.Part">
+		UPDATE 
+			part_use_tb
+		SET
+			part_use_many = part_use_many+#{partMany},pu_date=#{partUpdateDate}
+		WHERE
+			part_number=#{partNumber};
+	</update>
 </mapper>

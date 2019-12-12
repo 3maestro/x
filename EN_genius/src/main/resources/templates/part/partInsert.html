@@ -70,7 +70,6 @@
 					$('[name=partName]').val(data.partName).attr('readonly','readonly');
 					
 					$(document).on('blur','[name=partMany]',function(){
-						
 						var many = $('[name=partMany]').val();
 						console.log(many);
 						var tprice = (data.partPrice*many);
@@ -85,6 +84,8 @@
 					$('serchPartBtn').css('background-color','red').text('다시시도해주세요');
 				});
 				
+				var PartNumber = $('[name=partNumber]').val();
+				consloe.log(PartNumber);
 			});
 		});
 	</script>

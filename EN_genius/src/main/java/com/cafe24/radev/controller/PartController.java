@@ -1,8 +1,10 @@
 package com.cafe24.radev.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
@@ -106,18 +108,32 @@ public class PartController {
 	/**
 	 * 부품주문호출
 	 * 파트번호하나로 한로우조회
+	 * 1품목
 	 * 리스트목록에서 주문으로 넘어갈때
+	 * list -> order
 	 * @param model
 	 * @return
 	 */
-	@GetMapping("/partOrderToList")
-	public String partSelectForOrder(Model model,@RequestParam(value ="partNumber") String partNumber) {
+	@GetMapping("/partListToOrder")
+	public String partSelectForOrder(Model model,@RequestParam(value ="partCheck") String partNumber) {
 		System.out.println(partNumber+"<select for order/controller");
 		
 		model.addAttribute("partRow", partService.partSelectForOrder(partNumber));
 		
-		return "/part/partOrder";
+		return "/part/partOrder";  
 	}
+	/**
+	 * 리스트에서 그룹화시길값받아오기
+	 */
+	
+	/*
+	 * @PostMapping(value = "/sCateCall", produces = "application/json") public
+	 * String partSelectForGroup(Model model) {
+	 * System.out.println("<---그룹화 호출/컨트롤러");
+	 * 
+	 * return "null"; }
+	 */
+	
 	/**
 	 * 부품주문호출
 	 * 신규부품 주문시
@@ -150,12 +166,14 @@ public class PartController {
 	}
 	/**
 	 * 부품업데이트
+	 * partInsert.html
 	 * @param part
 	 * @return
 	 */
 	@GetMapping("/partUpdate")
 	public String partUpdate(Part part) {
-		
-		return null;
+		System.out.println("업데이트");
+		partService.partUpdateforMany(part);
+		return "redirect:/partList";
 	}
 }
