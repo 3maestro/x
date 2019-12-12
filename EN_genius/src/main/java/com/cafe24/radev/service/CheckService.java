@@ -1,11 +1,13 @@
 package com.cafe24.radev.service;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cafe24.radev.mapper.CheckMapper;
+import com.cafe24.radev.vo.AskCheck;
 import com.cafe24.radev.vo.Check;
 import com.cafe24.radev.vo.RoutineCheck;
 
@@ -22,6 +24,68 @@ public class CheckService {
 		
 		return list;
 	}
+	
+	public List<String> getAskCheck(List<String> check, String car){
+		System.out.println("getRoutineCheckList CheckService 호출");
+		System.out.println("check getAskCheck CheckService.java -> " + check);
+		System.out.println("car getAskCheck CheckService.java -> " + car);
+		
+		List<AskCheck> list = checkMapper.getAskCheck(car);
+		System.out.println("list getAskCheck CheckService : " + list);
+		
+		SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-dd");
+		Calendar time = Calendar.getInstance();
+		String date = format.format(time.getTime());
+		System.out.println(date + "<-date getAskCheck CheckService.java");
+		
+		AskCheck ask = null;
+		
+		/**
+		 *수리 내역중 정기점검 목록이 체그한 리스트보다 많을 때 
+		 * 
+		 */
+		if(list.size() >= check.size()) {
+			System.out.println("수리 내역중 정기점검 목록이 체크한 리스트(조회할 항목)보다 많거나 같을 때 ");
+			for(int i=0; i<list.size(); i++) {
+				for(int j=0; j<check.size(); j++){
+					String getCheckCode = check.get(j);		
+					ask = new AskCheck();
+					ask = list.get(i);
+					String getRiCode = ask.getRiCode();
+					// 체크항목과 최근 정비 내역의 정기 점검 항목이 일치 하다면 
+					if(getRiCode.equals(getCheckCode)) {
+						System.out.println("01. 체크 항목과 최근 정비 내역의 정기점검 항목이 일치 하다면 ");
+						
+					}
+				}
+				
+			}
+			
+		}else {
+			System.out.println("체크한 리스트(조회할 항목)이 수리 내역중 정기점검 목록이 보다 많을 때 ");
+			for(int i=0; i<check.size(); i++) {
+				for(int j=0; j<list.size(); j++) {
+					String getCheckCode = check.get(i);
+					ask = new AskCheck();
+					ask = list.get(j);
+					String getRiCode = ask.getRiCode();
+					// 체크 항목과 최근 정비 내역의 정기점검 항목이 일치 하다면 
+					if(getCheckCode.equals(getRiCode)) {
+						System.out.println("02. 체크 항목과 최근 정비 내역의 정기점검 항목이 일치 하다면 ");
+					}
+				}
+			
+				
+			}
+		
+		}
+		
+
+		
+		return null;
+	}
+	
+	
 	
 	public List<Map<String, Object>> getCheckList(String bigcate){
 		System.out.println("getCheckList CheckService 호출");

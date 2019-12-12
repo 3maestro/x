@@ -13,55 +13,47 @@
 	<script type="text/javascript">
 		
 		$(document).ready(function(){
-		    
-			
 
 			$('#periodBtn').click(function(){
+				var check = [];
+				var checkSize = $("input:checkbox[name='check']:checked").length
+				console.log(checkSize)
+				var checkVal = $("input:checkbox[name='check']:checked").val()
 				
-				var check = $("input:checkbox[name='check']:checked").val()
-
-		
+                $('input[name="check"]:checked').each(function(i){//체크된 리스트 저장
+                    check.push($(this).val());
+                });
+				
 				if(check == "undefined" || check == null){
 					alert('항목을 체크 하시오.')
 				}else{
-					console.log(check)
-				}
-				
-				
-				var request = $.ajax({
-					  url: "/",	//호출될 url
-					  method: "POST",
-					  data: {},//파라미터
-					  dataType: "json"		//응답 타입
+					console.log(check + '<-뭐니')
+					var request = $.ajax({
+						  url: "/askCheck",	//호출될 url
+						  method: "POST",
+						  //최근 수리 내역 중 수리항목코드와 당시 수리 날짜
+						  data: {"check" : check, "car":"KHMAJOU135795"},//파라미터
+						  dataType: "json"		//응답 타입
 					});
-					 			
-// 					request.done(function( data ) {
-						
+						 			
+					request.done(function( data ) {
+						console.log(data)
+					})
 					
-						
-					
-// 						console.log(data)
-
-// 					})
-					
-// 					request.fail(function( jqXHR, textStatus ) {
-// 					  //alert( "Request failed: " + textStatus );
-// 					});
-
-					
- 				});	
-
-			   
-			
-		})
-		
-		$(document).on('click','#checkall',function(){
-				if($("#checkall").prop("checked")){
-				    $("input[name=check]").prop("checked",true);
-				}else{
-					$("input[name=check]").prop("checked",false);
+					request.fail(function( jqXHR, textStatus ) {
+					  alert( "Request failed: " + textStatus );
+					});
 				}
 			})
+		})
+	
+		$(document).on('click','#checkall',function(){
+			if($("#checkall").prop("checked")){
+			    $("input[name=check]").prop("checked",true);
+			}else{
+				$("input[name=check]").prop("checked",false);
+			}
+		})
 		
 	</script>
 </th:block>	
@@ -77,19 +69,22 @@
 		<br>
 		
 		<table id="bootstrap-data-table" class="table table-striped table-bordered">
-			<tr>			
+			<tr>	
+				<td><label><input type="checkbox" id="checkall">선택</label></td>		
+				<td>교환코드</td>
 				<td>교환목록</td>
 				<td>거리별 교환주기</td>
 				<td>기간별 교환주기</td>
 				<!-- <td>전체선택<input type="checkbox" id="checkall"></td> -->
 				 
-				<td><input type="checkbox" id="checkall"> <label>전체선택</label></td>
+				
 			</tr>
 			<tr th:each="l : ${routineCheckList}">
+				<td><input type="checkbox" class="checkBox" name="check" th:value="${l.riCode}"></td>
+				<td th:value = "${l.riCode}" th:text = "${l.riCode}" ></td>
 				<td th:value = "${l.riItem}" th:text = "${l.riItem}" ></td>
 				<td th:value = "${l.distanceCycle}" th:text="${l.distanceCycle}"></td>
 				<td th:value = "${l.periodCycle}" th:text="${l.periodCycle}"></td>
-				<td><input type="checkbox" class="checkBox" name="check" th:value="${l.periodCycle}"></td>
 			</tr>
 		</table>
 

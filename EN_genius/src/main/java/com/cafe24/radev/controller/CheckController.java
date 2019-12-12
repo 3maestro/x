@@ -31,8 +31,24 @@ public class CheckController {
 		return "/check/routineCheckList";
 	}
 	
+	@PostMapping("/askCheck")
+	public @ResponseBody List<String> askCheck(
+			@RequestParam(value="check[]", required = false) List<String> check, String car) {
+		System.out.println("askCheck CheckController 호출");
+		System.out.println(check + " <-check askCheck CheckController.java");
+		System.out.println(car + " <-car askCheck CheckController.java");
+		
+		checkService.getAskCheck(check, car);
+		
+		List<String> list = new ArrayList<String>();
+	 
+		
+		return list;
+	}
+	
 	@GetMapping("/basicCheckList")
 	public String basicCheckList() {
+		System.out.println("basicCheckList CheckController 호출");
 		return "/check/basicCheckList";
 	}
 	
@@ -40,6 +56,7 @@ public class CheckController {
 	//@ResponseBody List<Map<String, Object>>
 	@GetMapping("/diagnosisGuide") 
 	public String checkList() {
+		System.out.println("checkList CheckController 호출");
 		return "/check/diagnosisGuide";
 	}
 	 
@@ -47,7 +64,7 @@ public class CheckController {
 	public @ResponseBody List<Map<String, Object>> checkList(
 			 @RequestParam(value="bigcate", defaultValue = "engine", required=false) String bigcate) {
 		
-		System.out.println("checkList CheckController 호출"); 
+		System.out.println("checkList 오버로딩 CheckController 호출"); 
 		System.out.println("대분류 : " + bigcate);
 		 
 		List<Map<String, Object>> checkMap = checkService.getCheckList(bigcate);
