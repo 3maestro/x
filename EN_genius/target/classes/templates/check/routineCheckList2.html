@@ -12,25 +12,48 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		
+/* 	//체크박스클릭시 
+	var checkArray = [];
+	$('input[name=partCheck]').click(function(){
+		//경고창 초기화
+		$('.card-body').find('h2').empty();
+		//장바구니 버튼초기화
+		$('[name=partListForm]').find('span').empty();
+		
+		var partCheck = $('input[name=partCheck]:checked');
+		//배열에 체크리스트담기
+		$(this).each(function() {
+			var checkVal = $(this).val(); 
+			console.log("벨류값확인 : " + checkVal);
+			checkArray.push(checkVal);
+		});
+		
+		if(partCheck.length > 1){
+			$('#buyPartBtn').text('다중부품구매');
+			$('[name=partListForm]').attr({action:'/partGroupToOrder',method : 'POST'});
+		}
+		console.log(checkArray+"<담긴배열");
+	}); */
+
+	
+	
 		$(document).ready(function(){
+			var check = [];
+			var checkVal; 
 			
-			$('#periodBtn').click(function(){
-				var check = [];
+			$('input[name=check]').click(function(){
+				
 				var checkSize = $("input:checkbox[name='check']:checked").length
 				console.log(checkSize)
-/* 				var checkVal; 
-				$('input:checkbox[name="check"]').each(function(){
-					checkVal = $("input:checkbox[name='check']:checked").val()
-					console.log(checkVal + '!!!!')
-					
-				}) */
 				
- 				var checkThis = $('table[name="routineList"]')
- 				console.log(checkThis + '<-this')
-                $('input[name="check"]:checked').each(function(i){//체크된 리스트 저장
-                    var checked = check.push($(this).val());
-                	//console.log(checked)
-                });
+ 				var checkThis = $("input:checkbox[name='check']:checked")
+				$(this).each(function(){
+					checkVal = $(this).val()
+					console.log(checkVal + '<- checkVal?')
+                	check.push(checkVal)
+				})	
+			})
+			$('#periodBtn').click(function(){
 				
 				if(check == "undefined" || check == null){
 					alert('항목을 체크 하시오.')
@@ -45,33 +68,28 @@
 					});
 						 			
 					request.done(function( data ) {
-						console.log(data + " <-data")
+						console.log(data)
 					
 					for(var i=0; i<data.length; i++){
 						var getRiCode = data[i];
 						//console.log(getRiCode)
-//						console.log(checkVal + '<-checkVal')
-						if(getRiCode == check[i]){
-							console.log(check[i])
+						console.log(checkVal + '<-checkVal')
+						if(getRiCode == checkVal){
   							console.log('교환필요')
-  							var o =checkThis.find('#o')
-  							
-// // 							//console.log(check + '<-check?')
- 							o.attr('style', 'display: block')
-//   							var o = checkThis.find('#o');
-   							console.log(o+"<<<<<<");
+// 							console.log(check + '<-check?')
+// 							$('#o').attr('style', 'display: block')
+   							//var o = checkThis.find('#o');
+   							//console.log(o+"<<<<<<");
 //   							console.log(o.text());
   							
 // 							/* var oo = o.find('#o');
 // 							console.log(oo) */
 //  							//oo.attr('style', 'display: block')
-						}
-						/* else if(getRiCode==check[i]){
+						}else if(getRiCode==checkVal){
 							console.log('교환필요없음')
-							var x =checkThis.find('.x')
 							//console.log(check + '<<<<<')
-							$('.x').attr('style', 'display: block')
-						} */
+							//$('.x').attr('style', 'display: block')
+						}
 					}
 						
 						

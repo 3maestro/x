@@ -19,6 +19,12 @@
 			routine_inspection_tb
 	</select>
 
+	<select id="getDate" parameterType="String" 
+	 	resultType="String">
+		SELECT 
+		TIMESTAMPDIFF(month, #{repairDate}, now());
+	</select>
+
 	<select id="getAskCheck" parameterType="String" 
 	 	resultType="com.cafe24.radev.vo.AskCheck">
  		SELECT

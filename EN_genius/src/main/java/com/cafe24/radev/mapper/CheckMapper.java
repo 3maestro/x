@@ -14,4 +14,5 @@ public interface CheckMapper {
 	public List<RoutineCheck> getRoutineCheckList();
 	public List<Check> getCheckList(String bigcate);
 	public List<AskCheck> getAskCheck(String car);
+	public String getDate(String repairDate);
 }

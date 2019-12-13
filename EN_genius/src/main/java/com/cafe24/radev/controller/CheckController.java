@@ -38,10 +38,9 @@ public class CheckController {
 		System.out.println(check + " <-check askCheck CheckController.java");
 		System.out.println(car + " <-car askCheck CheckController.java");
 		
-		checkService.getAskCheck(check, car);
-		
 		List<String> list = new ArrayList<String>();
-	 
+		list = checkService.getAskCheck(check, car);
+		System.out.println(list + " <-re askCheck CheckController.java");
 		
 		return list;
 	}
