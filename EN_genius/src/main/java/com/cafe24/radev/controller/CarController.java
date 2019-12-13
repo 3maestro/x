@@ -1,6 +1,7 @@
 package com.cafe24.radev.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cafe24.radev.service.CarService;
 import com.cafe24.radev.vo.VoCarRegister;
@@ -21,14 +23,6 @@ public class CarController {
 	@Autowired
 	private CarService carService;
 
-	/*
-	 * @GetMapping("carUpdate") public String carUpdate(@RequestParam(value="cus",
-	 * required = false)String cuscar) { System.out.println(cuscar + "값확인");
-	 * 
-	 * return "carregister/carUpdate";
-	 * 
-	 * }
-	 */
 
 	@PostMapping("carRegister")
 	public String carRegister(VoCarRegister vcreg) {
@@ -53,6 +47,13 @@ public class CarController {
 		return "carregister/carRegister";
 	}
 
+	
+	// ajax 컨트롤러에서 받는 방법
+	@PostMapping(value = "/test", produces = "application/json")
+	public @ResponseBody String ajaxTest(@RequestParam Map<String, String> json) {
+		String a = json.get("age");
+		return a;
+	}
 	
 	  @GetMapping("/carList")
 	  public String carList(VoCarRegister vcreg, Model model) {
