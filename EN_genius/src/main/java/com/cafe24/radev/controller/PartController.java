@@ -2,7 +2,6 @@ package com.cafe24.radev.controller;
 
 import java.util.List;
 
-
 import javax.servlet.http.HttpSession;
 
 
@@ -95,29 +94,55 @@ public class PartController {
 	 */
 	@PostMapping(value = "/sCateCall", produces = "application/json")
 	public @ResponseBody List<String> sCateCall(
-			@RequestParam(value = "fVal", defaultValue = "engine", required = false)String fVal
+			@RequestParam(value = "fVal", defaultValue = "engine", required = false)String firstVal
 			){
 		System.out.println("카테고리ajax호출/컨트롤러");
-		System.out.println(fVal+"<-paramr/ajax호출/컨트롤러");
+		System.out.println(firstVal+"<-paramr/ajax호출/컨트롤러");
 		
 		
-		return partService.selectSecondDate(fVal);
+		return partService.selectSecondDate(firstVal);
 	}
 	/**
 	 * 부품주문호출
 	 * 파트번호하나로 한로우조회
+	 * 1품목
 	 * 리스트목록에서 주문으로 넘어갈때
+	 * list -> order
 	 * @param model
 	 * @return
 	 */
-	@GetMapping("/partOrderToList")
-	public String partSelectForOrder(Model model,@RequestParam(value ="partNumber") String partNumber) {
+	@GetMapping("/partListToOrder")
+	public String partSelectForOrder(Model model,@RequestParam(value ="partCheck") String partNumber) {
 		System.out.println(partNumber+"<select for order/controller");
 		
 		model.addAttribute("partRow", partService.partSelectForOrder(partNumber));
 		
-		return "/part/partOrder";
+		return "/part/partOrder";  
 	}
+	
+	/**
+	 * 리스트에서 다중체크값 가져오기 ajax
+	 * @param checkValue
+	 * @return
+	 */
+	@PostMapping(value = "/checkGroup", produces = "application/json")
+	public @ResponseBody String checkGroup(
+			@RequestParam(value = "checkArray[]", required = false)String checkArray
+			){
+		System.out.println("파트그룹ajax호출/컨트롤러");
+		System.out.println(checkArray+"<-paramr/ajax호출/컨트롤러");
+		partService.getCheckGroup(checkArray);		
+		
+		return null;
+	}
+	/*
+	 * @PostMapping("/partGroupToOrder") public String getPartGroup(String a,String
+	 * b,String c) { System.out.println(a); System.out.println(b);
+	 * System.out.println(c);
+	 * 
+	 * return null; };
+	 */
+	
 	/**
 	 * 부품주문호출
 	 * 신규부품 주문시
@@ -150,12 +175,14 @@ public class PartController {
 	}
 	/**
 	 * 부품업데이트
+	 * partInsert.html
 	 * @param part
 	 * @return
 	 */
 	@GetMapping("/partUpdate")
 	public String partUpdate(Part part) {
-		
-		return null;
+		System.out.println("업데이트");
+		partService.partUpdateforMany(part);
+		return "redirect:/partList";
 	}
 }

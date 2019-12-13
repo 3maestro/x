@@ -35,6 +35,7 @@
 			customer_tb
 		WHERE
 			bs_code='bs001'
+<<<<<<< HEAD
 	</select>
 	<select id="getCustomerInsertAjax" resultType="String">
 	  	SELECT 
@@ -49,6 +50,8 @@
 				customer_birth=#{birth}
 			AND 
 				customer_phone=#{phone}
+=======
+>>>>>>> refs/heads/develop
 	</select>
 	<insert id="getCustomerInsert" parameterType="com.cafe24.radev.vo.Customer">
 		INSERT INTO

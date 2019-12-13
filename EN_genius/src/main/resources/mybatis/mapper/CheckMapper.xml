@@ -18,6 +18,41 @@
 		FROM
 			routine_inspection_tb
 	</select>
+
+	<select id="getDate" parameterType="String" 
+	 	resultType="String">
+		SELECT 
+		TIMESTAMPDIFF(month, #{repairDate}, now());
+	</select>
+
+	<select id="getAskCheck" parameterType="String" 
+	 	resultType="com.cafe24.radev.vo.AskCheck">
+ 		SELECT
+			arrayAsk.customer_car_info_code AS customerCarInfoCode,
+			R.ri_code AS riCode,
+			R.ri_item AS riItem,
+			MAX(arrayAsk.ask_repair_date) AS askRepairDate,
+			R.period_cycle AS periodCycle,
+			R.now_date AS nowDate
+		FROM
+			routine_inspection_tb AS R
+		INNER JOIN
+			(
+				SELECT
+					*
+				FROM
+					ask_check_tb AS ask
+				ORDER BY
+					ask.ask_repair_date DESC
+			) AS arrayAsk
+		ON
+			R.ri_code = arrayAsk.ri_code
+		WHERE 
+			arrayAsk.customer_car_info_code = #{car}
+		GROUP by
+			arrayAsk.ri_code
+	</select>
+		
 	<select id="getCheckList" parameterType="String" 
 	 resultType="com.cafe24.radev.vo.Check">
 		SELECT
@@ -32,5 +67,6 @@
 		WHERE 
 			b.ck_big_name = #{bigcate}
 	</select>
+	
 			
 </mapper>

@@ -29,5 +29,5 @@ public interface PartMapper {
 	 * @param partValue
 	 * @return
 	 */
-	
+	public void partUpdateforMany(Part part);
 }
