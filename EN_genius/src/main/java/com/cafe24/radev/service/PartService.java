@@ -13,6 +13,7 @@ import com.cafe24.radev.mapper.PartMapper;
 import com.cafe24.radev.vo.FirstCategoryForCar;
 import com.cafe24.radev.vo.Part;
 import com.cafe24.radev.vo.SecondCategoryForCar;
+import com.fasterxml.jackson.databind.ser.std.StdArraySerializers.IntArraySerializer;
 
 @Service
 public class PartService {
@@ -23,12 +24,6 @@ public class PartService {
 	 * @return
 	 */
 	public List<Part> getPartList(){
-		/*
-		 * System.out.println("partList/Service"); List<Part> partList = new
-		 * ArrayList<Part>(); partList = partMapper.getPartList(); Part list =
-		 * partList.get(0); String partNumber = list.getPartNumber();
-		 * System.out.println(partNumber+"<-파트번호/service");
-		 */
 		
 		return partMapper.getPartList();
 	}
@@ -90,7 +85,9 @@ public class PartService {
 		
 		partMapper.partInsertPro(parts);
 	}
-	
+	/**
+	 * 부품수량업데이트
+	 */
 	public void partUpdateforMany(Part part) {
 		SimpleDateFormat format = new SimpleDateFormat ("yyyy-MM-dd");
 		Calendar time = Calendar.getInstance();
@@ -103,6 +100,16 @@ public class PartService {
 		part.setPartWrite(partWrite);
 		part.setPartUpdateDate(partUpdateDate);
 		
+		
 		partMapper.partUpdateforMany(part);
 	}
+	/**
+	 * 
+	 * @param checkArray
+	 */
+	public void getCheckGroup(String checkArray) {
+		
+		System.out.println("getCheckGroup/service");
+	}
+	
 }

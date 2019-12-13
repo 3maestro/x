@@ -1,10 +1,7 @@
 package com.cafe24.radev.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
@@ -97,13 +94,13 @@ public class PartController {
 	 */
 	@PostMapping(value = "/sCateCall", produces = "application/json")
 	public @ResponseBody List<String> sCateCall(
-			@RequestParam(value = "fVal", defaultValue = "engine", required = false)String fVal
+			@RequestParam(value = "fVal", defaultValue = "engine", required = false)String firstVal
 			){
 		System.out.println("카테고리ajax호출/컨트롤러");
-		System.out.println(fVal+"<-paramr/ajax호출/컨트롤러");
+		System.out.println(firstVal+"<-paramr/ajax호출/컨트롤러");
 		
 		
-		return partService.selectSecondDate(fVal);
+		return partService.selectSecondDate(firstVal);
 	}
 	/**
 	 * 부품주문호출
@@ -122,16 +119,28 @@ public class PartController {
 		
 		return "/part/partOrder";  
 	}
-	/**
-	 * 리스트에서 그룹화시길값받아오기
-	 */
 	
+	/**
+	 * 리스트에서 다중체크값 가져오기 ajax
+	 * @param checkValue
+	 * @return
+	 */
+	@PostMapping(value = "/checkGroup", produces = "application/json")
+	public @ResponseBody String checkGroup(
+			@RequestParam(value = "checkArray[]", required = false)String checkArray
+			){
+		System.out.println("파트그룹ajax호출/컨트롤러");
+		System.out.println(checkArray+"<-paramr/ajax호출/컨트롤러");
+		partService.getCheckGroup(checkArray);		
+		
+		return null;
+	}
 	/*
-	 * @PostMapping(value = "/sCateCall", produces = "application/json") public
-	 * String partSelectForGroup(Model model) {
-	 * System.out.println("<---그룹화 호출/컨트롤러");
+	 * @PostMapping("/partGroupToOrder") public String getPartGroup(String a,String
+	 * b,String c) { System.out.println(a); System.out.println(b);
+	 * System.out.println(c);
 	 * 
-	 * return "null"; }
+	 * return null; };
 	 */
 	
 	/**

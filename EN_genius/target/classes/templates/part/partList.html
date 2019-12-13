@@ -10,12 +10,29 @@
 	<th:block layout:fragment="customContents">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javascript">
-		
 			$(document).ready(function(){
+				//체크박스클릭시 
+				var checkArray = [];
+				var checkVal;
 				$('input[name=partCheck]').click(function(){
+					//경고창 초기화
 					$('.card-body').find('h2').empty();
+					
+					var partCheck = $('input[name=partCheck]:checked');
+					//배열에 체크리스트담기
+					$(this).each(function() {
+						checkVal += ','+$(this).val(); 
+						console.log("벨류값확인 : " + checkVal);
+						//checkArray.push(checkVal);
+					});
+					
+					if(partCheck.length > 1){
+						$('#buyPartBtn').text('다중부품구매');
+						$('[name=partListForm]').attr({action:'/partGroupToOrder',method : 'POST'});
+					}
+					console.log(checkArray+"<담긴배열");
 				});
-
+				//모든버튼클릭시
 				$('.btn-info').click(function(){
 					console.log('click');
 					var partCheck = $('input[name=partCheck]:checked');
@@ -28,29 +45,42 @@
 						$('.btn-info').attr('type','submit');
 					};
 				});	
-				
+				//구매버튼클릭시	
 				$('#buyPartBtn').click(function(){
-					var checkArray = [];
-					console.log(checkArray+"<담을배열");
 					var partCheck = $('input[name=partCheck]:checked');
 					var length = partCheck.length;
-					console.log(length);
+					console.log(checkVal+"<담긴배열값");
+					//console.log(partCheck.val()+"<<<<<");
+				
 					var form = $('[name=partListForm]');
 					if(length==1){
 						//1주문시
 						form.attr('action','/partListToOrder?'+partCheck+'');
 					}else{
-						//2개이상주문시
+						//2개이상주문시 배열
+						$('.btn-info').attr('type','button');
 						
-						var checkValue=checkArray.push(partCheck);
-						console.log(checkValue+"<담긴배열");
-							
-						form.attr({action:'/partListCheck',method:'post'});
+						checkArray.push(partCheck);
+						console.log(checkArray+"<담긴배열");
+						
+						/* var request = $.ajax({
+							url: "/checkGroup",
+							method: "POST",
+							data: { 'checkArray' : checkArray },
+							dataType: "json"
+						});
+						
+						request.done(function( data ) {
+							console.log(data);
+						
+						});
+						request.fail(function( jqXHR, textStatus ) {
+							console.log( "Request failed: " + textStatus );
+						}); */	 					
 					};
 				});
 			});
 		</script>
-
 		<div class="animated fadeIn">
 			<div class="row">
 				<div class="col-md-12">
