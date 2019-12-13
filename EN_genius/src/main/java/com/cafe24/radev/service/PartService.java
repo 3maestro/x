@@ -1,6 +1,8 @@
 package com.cafe24.radev.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +53,7 @@ public class PartService {
 		return categoryMapper.getFirstCateList();
 	}
 	/**
-	 * 부품등록시 중분류선택을 위한 데이터조회
+	 * 부품등록시 중분류선택을 위한 데이터조회(Ajax)
 	 * @return
 	 */
 	public List<String> selectSecondDate(String fVal){
@@ -64,7 +66,29 @@ public class PartService {
 			String sCate = sCateVO.getSecondCateName();
 			sCateNameList.add(sCate);
 		}
-		
 		return sCateNameList;
 	}
+	/**
+	 * 신규부품등록
+	 * @param parts
+	 */
+	public void partInsertPro(Part parts) {
+		System.out.println("partInsertPro/Service");
+		SimpleDateFormat format = new SimpleDateFormat ("yyyy-MM-dd");
+		Calendar time = Calendar.getInstance();
+		
+		String partWrite = "id002";
+		//String factory = "cp002";
+		String partUpdateDate = format.format(time.getTime());
+		
+		System.out.println(partUpdateDate+"<<현재시간/service");
+		
+		parts.setPartWrite(partWrite);
+		parts.setPartUpdateDate(partUpdateDate);
+		//parts.setFactory(factory);
+		
+		partMapper.partInsertPro(parts);
+	}
+	
+	
 }
