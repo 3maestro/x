@@ -18,12 +18,40 @@ public class CustomerService {
 	@Autowired
 	private CustomerMapper customerMapper;
 
+	/********
+	 * 고객 목록을 조회 하는 메소드
+	 * @return 리스트 타입
+	 */
 	public List<Customer> getCustomerList(){
 		List<Customer> list = customerMapper.getCustomerList();
 		return list;
 	}
 	
-	public void getCustomerInsert() {
-		customerMapper.getCustomerInsert();
+	/********
+	 * 고객을 신규 등록하는 메소드
+	 * @return 없음
+	 */
+	public void getCustomerInsert(Customer customer) {
+		customerMapper.getCustomerInsert(customer);
+	}
+	
+	/*****
+	 * 고객 등록유무를 조회하는 메소드
+	 * @return 고객코드
+	 */
+	public String getCustomerInsertAjax(String name, String birth, String phone) {
+		System.out.println(name);
+		System.out.println(birth);
+		System.out.println(phone);
+		
+		String code = customerMapper.getCustomerInsertAjax(name,birth,phone);
+		
+		if(code == null || "".equals(code)) {
+			code = "미가입";
+		}else {
+			code=code.substring(6);
+		}
+		System.out.println(code);
+		return code;
 	}
 }
