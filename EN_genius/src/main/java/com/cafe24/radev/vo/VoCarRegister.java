@@ -2,18 +2,16 @@ package com.cafe24.radev.vo;
 
 public class VoCarRegister {
 
-	private String customerCarInfoCode;
-	private String bsCode;
-	private String customerCode;
-	private String customerCarNumber;
-	private String rcCode;
-	private String vendorCode;
-	private String carProductionYear;
-	private String carRegistrationDate;
-	private String lastDistanceDriven;
-	private String lastVisitDate;
-	private String customerCarInfoWriter;
-	private String customerCarInfoDate;
+	
+	private String customerCarInfoCode; // 공업사사업장코드(FK)
+	private String customerCarNumber; // 차량번호
+	private String carProductionYear; // 생산연식
+	private String carRegistrationDate; // 자동차등록일
+	private String lastDistanceDriven; // 마지막방문시주행거리
+	private String lastVisitDate; //마지막방문날짜
+	private String customerCarInfoWriter; //작성자
+	private String customerCarInfoDate; // 작성일자
+	private String groupCode; // 그룹코드
 	
 	public String getCustomerCarInfoCode() {
 		return customerCarInfoCode;
@@ -21,35 +19,11 @@ public class VoCarRegister {
 	public void setCustomerCarInfoCode(String customerCarInfoCode) {
 		this.customerCarInfoCode = customerCarInfoCode;
 	}
-	public String getBsCode() {
-		return bsCode;
-	}
-	public void setBsCode(String bsCode) {
-		this.bsCode = bsCode;
-	}
-	public String getCustomerCode() {
-		return customerCode;
-	}
-	public void setCustomerCode(String customerCode) {
-		this.customerCode = customerCode;
-	}
 	public String getCustomerCarNumber() {
 		return customerCarNumber;
 	}
 	public void setCustomerCarNumber(String customerCarNumber) {
 		this.customerCarNumber = customerCarNumber;
-	}
-	public String getRcCode() {
-		return rcCode;
-	}
-	public void setRcCode(String rcCode) {
-		this.rcCode = rcCode;
-	}
-	public String getVendorCode() {
-		return vendorCode;
-	}
-	public void setVendorCode(String vendorCode) {
-		this.vendorCode = vendorCode;
 	}
 	public String getCarProductionYear() {
 		return carProductionYear;
@@ -87,14 +61,20 @@ public class VoCarRegister {
 	public void setCustomerCarInfoDate(String customerCarInfoDate) {
 		this.customerCarInfoDate = customerCarInfoDate;
 	}
+	public String getGroupCode() {
+		return groupCode;
+	}
+	public void setGroupCode(String groupCode) {
+		this.groupCode = groupCode;
+	}
+	
 	@Override
 	public String toString() {
-		return "voCarRegister [customerCarInfoCode=" + customerCarInfoCode + ", bsCode=" + bsCode + ", customerCode="
-				+ customerCode + ", customerCarNumber=" + customerCarNumber + ", rcCode=" + rcCode + ", vendorCode="
-				+ vendorCode + ", carProductionYear=" + carProductionYear + ", carRegistrationDate="
-				+ carRegistrationDate + ", lastDistanceDriven=" + lastDistanceDriven + ", lastVisitDate="
-				+ lastVisitDate + ", customerCarInfoWriter=" + customerCarInfoWriter + ", customerCarInfoDate="
-				+ customerCarInfoDate + "]";
+		return "VoCarRegister [customerCarInfoCode=" + customerCarInfoCode + ", customerCarNumber=" + customerCarNumber
+				+ ", carProductionYear=" + carProductionYear + ", carRegistrationDate=" + carRegistrationDate
+				+ ", lastDistanceDriven=" + lastDistanceDriven + ", lastVisitDate=" + lastVisitDate
+				+ ", customerCarInfoWriter=" + customerCarInfoWriter + ", customerCarInfoDate=" + customerCarInfoDate
+				+ ", groupCode=" + groupCode + "]";
 	}
 	
 	
