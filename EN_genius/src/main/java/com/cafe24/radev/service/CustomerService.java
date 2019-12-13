@@ -22,11 +22,10 @@ public class CustomerService {
 	 */
 	public List<Customer> getCustomerList(){
 		List<Customer> list = customerMapper.getCustomerList();
-		for(int i=1;i<list.size();i++) {
+		for(int i=0;i<list.size();i++) {
 			Customer customer = new Customer();
 			customer = list.get(i);
 			customer.setCustomerCode(customer.getCustomerCode().replace(customer.getBsCode()+"_", ""));
-			list.add(i, customer);
 		}
 		return list;
 	}
