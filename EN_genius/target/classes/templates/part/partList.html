@@ -11,26 +11,19 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-				//체크박스클릭시 
-				var checkArray = [];
+				//var checkArray = [];
 				var checkVal;
+				//체크박스클릭시 
 				$('input[name=partCheck]').click(function(){
 					//경고창 초기화
 					$('.card-body').find('h2').empty();
-					
+
 					var partCheck = $('input[name=partCheck]:checked');
-					//배열에 체크리스트담기
-					$(this).each(function() {
-						checkVal += ','+$(this).val(); 
-						console.log("벨류값확인 : " + checkVal);
-						//checkArray.push(checkVal);
-					});
 					
-					if(partCheck.length > 1){
+										if(partCheck.length > 1){
 						$('#buyPartBtn').text('다중부품구매');
-						$('[name=partListForm]').attr({action:'/partGroupToOrder',method : 'POST'});
+						//$('[name=partListForm]').attr('action','/partGroupToOrder');
 					}
-					console.log(checkArray+"<담긴배열");
 				});
 				//모든버튼클릭시
 				$('.btn-info').click(function(){
@@ -43,15 +36,23 @@
 						$('.card-body').append('<h2>체크값을확인하여주세요</h2>');
 					}else{
 						$('.btn-info').attr('type','submit');
-					};
+					}
 				});	
 				//구매버튼클릭시	
 				$('#buyPartBtn').click(function(){
 					var partCheck = $('input[name=partCheck]:checked');
 					var length = partCheck.length;
-					console.log(checkVal+"<담긴배열값");
-					//console.log(partCheck.val()+"<<<<<");
-				
+					//console.log(checkVal+"<담긴배열값");
+				//체크리스트담기을 값 화인
+					partCheck.each(function() {
+						if(checkVal == ""){
+							checkVal = $(this).val();
+						}else{
+							checkVal += ','+$(this).val(); 
+						}
+							console.log("벨류값확인 : >>" + checkVal);
+					});
+					
 					var form = $('[name=partListForm]');
 					if(length==1){
 						//1주문시
@@ -59,14 +60,13 @@
 					}else{
 						//2개이상주문시 배열
 						$('.btn-info').attr('type','button');
+						//배열에담기
+						//checkArray.push(partCheck);
 						
-						checkArray.push(partCheck);
-						console.log(checkArray+"<담긴배열");
-						
-						/* var request = $.ajax({
+						var request = $.ajax({
 							url: "/checkGroup",
 							method: "POST",
-							data: { 'checkArray' : checkArray },
+							data: { 'checkArray' : checkVal },
 							dataType: "json"
 						});
 						
@@ -74,9 +74,10 @@
 							console.log(data);
 						
 						});
+						
 						request.fail(function( jqXHR, textStatus ) {
 							console.log( "Request failed: " + textStatus );
-						}); */	 					
+						});	 					
 					};
 				});
 			});

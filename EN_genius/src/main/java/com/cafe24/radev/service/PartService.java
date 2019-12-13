@@ -13,7 +13,6 @@ import com.cafe24.radev.mapper.PartMapper;
 import com.cafe24.radev.vo.FirstCategoryForCar;
 import com.cafe24.radev.vo.Part;
 import com.cafe24.radev.vo.SecondCategoryForCar;
-import com.fasterxml.jackson.databind.ser.std.StdArraySerializers.IntArraySerializer;
 
 @Service
 public class PartService {
@@ -104,11 +103,10 @@ public class PartService {
 		partMapper.partUpdateforMany(part);
 	}
 	/**
-	 * 
+	 * 부품체크 그룹 호출
 	 * @param checkArray
 	 */
 	public void getCheckGroup(String checkArray) {
-		
 		System.out.println("getCheckGroup/service");
 	}
 	

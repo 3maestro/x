@@ -1,88 +1,109 @@
 package com.cafe24.radev.vo;
-
-import org.springframework.web.multipart.MultipartFile;
+/**
+ * 	사업장 vo
+ * @author 박연우
+ *
+ */
 
 public class CarFactory {
-
-	private String boss_id;
-	private String boss_pw;
-	private String boss_name;
-	private String bs_name;
-	private String bs_num;
-	private String bs_addr;
-	private String bs_telephone;
-	private String boss_phonenum;
-	private String boss_email;
-	private String bs_registration;
-	public String getBoss_id() {
-		return boss_id;
-	}
-	public void setBoss_id(String boss_id) {
-		this.boss_id = boss_id;
-	}
-	public String getBoss_pw() {
-		return boss_pw;
-	}
-	public void setBoss_pw(String boss_pw) {
-		this.boss_pw = boss_pw;
-	}
-	public String getBoss_name() {
-		return boss_name;
-	}
-	public void setBoss_name(String boss_name) {
-		this.boss_name = boss_name;
-	}
-	public String getBs_name() {
-		return bs_name;
-	}
-	public void setBs_name(String bs_name) {
-		this.bs_name = bs_name;
-	}
-	public String getBs_num() {
-		return bs_num;
-	}
-	public void setBs_num(String bs_num) {
-		this.bs_num = bs_num;
-	}
-	public String getBs_addr() {
-		return bs_addr;
-	}
-	public void setBs_addr(String bs_addr) {
-		this.bs_addr = bs_addr;
-	}
-	public String getBs_telephone() {
-		return bs_telephone;
-	}
-	public void setBs_telephone(String bs_telephone) {
-		this.bs_telephone = bs_telephone;
-	}
-	public String getBoss_phonenum() {
-		return boss_phonenum;
-	}
-	public void setBoss_phonenum(String boss_phonenum) {
-		this.boss_phonenum = boss_phonenum;
-	}
-	public String getBoss_email() {
-		return boss_email;
-	}
-	public void setBoss_email(String boss_email) {
-		this.boss_email = boss_email;
-	}
 	
-	public String getBs_registration() {
-		return bs_registration;
+	private String bsCode;
+	private String level;
+	private String bossId;
+	private String bossPw;
+	private String bossName;
+	private String bossPhonenum;
+	private String bossEmail;
+	private String bsName;
+	private String bsNumber;
+	private String bsAddr;
+	private String bsTelephone;
+	private String bsRegistration;
+	private String bsWriter;
+	public String getBsCode() {
+		return bsCode;
 	}
-	public void setBs_registration(String bs_registration) {
-		this.bs_registration = bs_registration;
+	public void setBsCode(String bsCode) {
+		this.bsCode = bsCode;
 	}
-	
-	
+	public String getLevel() {
+		return level;
+	}
+	public void setLevel(String level) {
+		this.level = level;
+	}
+	public String getBossId() {
+		return bossId;
+	}
+	public void setBossId(String bossId) {
+		this.bossId = bossId;
+	}
+	public String getBossPw() {
+		return bossPw;
+	}
+	public void setBossPw(String bossPw) {
+		this.bossPw = bossPw;
+	}
+	public String getBossName() {
+		return bossName;
+	}
+	public void setBossName(String bossName) {
+		this.bossName = bossName;
+	}
+	public String getBossPhonenum() {
+		return bossPhonenum;
+	}
+	public void setBossPhonenum(String bossPhonenum) {
+		this.bossPhonenum = bossPhonenum;
+	}
+	public String getBossEmail() {
+		return bossEmail;
+	}
+	public void setBossEmail(String bossEmail) {
+		this.bossEmail = bossEmail;
+	}
+	public String getBsName() {
+		return bsName;
+	}
+	public void setBsName(String bsName) {
+		this.bsName = bsName;
+	}
+	public String getBsNumber() {
+		return bsNumber;
+	}
+	public void setBsNumber(String bsNumber) {
+		this.bsNumber = bsNumber;
+	}
+	public String getBsAddr() {
+		return bsAddr;
+	}
+	public void setBsAddr(String bsAddr) {
+		this.bsAddr = bsAddr;
+	}
+	public String getBsTelephone() {
+		return bsTelephone;
+	}
+	public void setBsTelephone(String bsTelephone) {
+		this.bsTelephone = bsTelephone;
+	}
+	public String getBsRegistration() {
+		return bsRegistration;
+	}
+	public void setBsRegistration(String bsRegistration) {
+		this.bsRegistration = bsRegistration;
+	}
+	public String getBsWriter() {
+		return bsWriter;
+	}
+	public void setBsWriter(String bsWriter) {
+		this.bsWriter = bsWriter;
+	}
 	@Override
 	public String toString() {
-		return "CarFactory [boss_id=" + boss_id + ", boss_pw=" + boss_pw + ", boss_name=" + boss_name + ", bs_name="
-				+ bs_name + ", bs_num=" + bs_num + ", bs_addr=" + bs_addr + ", bs_telephone=" + bs_telephone
-				+ ", boss_phonenum=" + boss_phonenum + ", boss_email=" + boss_email + ", bs_registration="
-				+ bs_registration + "]";
+		return "CarFactory [bsCode=" + bsCode + ", level=" + level + ", bossId=" + bossId + ", bossPw=" + bossPw
+				+ ", bossName=" + bossName + ", bossPhonenum=" + bossPhonenum + ", bossEmail=" + bossEmail + ", bsName="
+				+ bsName + ", bsNumber=" + bsNumber + ", bsAddr=" + bsAddr + ", bsTelephone=" + bsTelephone
+				+ ", bsRegistration=" + bsRegistration + ", bsWriter=" + bsWriter + "]";
 	}
-	
+
 }
