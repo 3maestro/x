@@ -32,7 +32,7 @@
 		FROM
 			customer_tb
 		WHERE
-			bs_code='cp001'
+			bs_code='bs001'
 	</select>
 	<insert id="getCustomerInsert" parameterType="com.cafe24.radev.vo.Customer">
 		INSERT INTO tb_member(
