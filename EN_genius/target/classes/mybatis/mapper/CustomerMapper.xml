@@ -13,6 +13,7 @@
 		<result property="customerName"		column="customer_name"/>
 		<result property="customerBirth"	column="customer_birth"/>
 		<result property="customerGender"	column="customer_gender"/>
+<<<<<<< HEAD
 		<result property="customerPost"		column="customer_post"/>
 		<result property="customerAddr"		column="customer_addr"/>
 		<result property="customerPhone"	column="customer_phone"/>
@@ -49,6 +50,28 @@
 				customer_birth=#{birth}
 			AND 
 				customer_phone=#{phone}
+=======
+		<result property="customerAddr"		column="customer_addr"/>
+		<result property="customerPhone"	column="customer_phone"/>
+		<result property="customerMemo"		column="customer_memo"/>
+	</resultMap>
+	<select id="getCustomerList" resultMap="CustomerResultMap">
+	  	SELECT 
+			customer_code
+			,bs_code
+			,ei_code
+			,customer_sign
+			,customer_name
+			,customer_birth
+			,customer_gender
+			,customer_addr
+			,customer_phone
+			,customer_memo
+		FROM
+			customer_tb
+		WHERE
+			bs_code='cp001'
+>>>>>>> refs/heads/develop
 	</select>
 	<insert id="getCustomerInsert" parameterType="com.cafe24.radev.vo.Customer">
 		INSERT INTO tb_member(

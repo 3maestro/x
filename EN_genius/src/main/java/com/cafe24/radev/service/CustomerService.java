@@ -18,6 +18,7 @@ public class CustomerService {
 	@Autowired
 	private CustomerMapper customerMapper;
 
+<<<<<<< HEAD
 	/********
 	 * 고객 목록을 조회 하는 메소드
 	 * @return 리스트 타입
@@ -53,5 +54,14 @@ public class CustomerService {
 		}
 		System.out.println(code);
 		return code;
+=======
+	public List<Customer> getCustomerList(){
+		List<Customer> list = customerMapper.getCustomerList();
+		return list;
+	}
+	
+	public void getCustomerInsert() {
+		customerMapper.getCustomerInsert();
+>>>>>>> refs/heads/develop
 	}
 }
