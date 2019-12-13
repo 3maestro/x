@@ -14,7 +14,7 @@ public class Customer {
 	private String customerMemo;
 	
 	public String getCustomerCode() {
-		return customerCode.replace(bsCode+"_", "");
+		return customerCode;
 	}
 	public void setCustomerCode(String customerCode) {
 		this.customerCode = customerCode;

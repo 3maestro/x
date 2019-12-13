@@ -22,6 +22,12 @@ public class CustomerService {
 	 */
 	public List<Customer> getCustomerList(){
 		List<Customer> list = customerMapper.getCustomerList();
+		for(int i=1;i<list.size();i++) {
+			Customer customer = new Customer();
+			customer = list.get(i);
+			customer.setCustomerCode(customer.getCustomerCode().replace(customer.getBsCode()+"_", ""));
+			list.add(i, customer);
+		}
 		return list;
 	}
 	
@@ -30,6 +36,16 @@ public class CustomerService {
 	 * @return 없음
 	 */
 	public void getCustomerInsert(Customer customer) {
+		int t = customerMapper.getCustomerList().size()+1;
+		String bsCode = "bs001";
+		String eiCode = "emp002";
+		String customerCode = bsCode+"_customer"+String.format("%03d", t);
+		System.out.println(customerCode);
+		customer.setCustomerCode(customerCode);
+		customer.setBsCode(bsCode);
+		customer.setEiCode(eiCode);
+		customer.setCustomerMemo("-");
+		System.out.println(customer);
 		customerMapper.getCustomerInsert(customer);
 	}
 	

@@ -29,12 +29,12 @@ public class CustomerController {
 	public String getCustomerInsert(Model model) {
 		return "/customer/customerInsert";
 	}
+	
 	@PostMapping("/customerInsert")
 	public String getCustomerInsert(Model model, Customer customer) {
 		System.out.println(customer);
 		customerService.getCustomerInsert(customer);
-		
-		return "/customer/customerList";
+		return "redirect:/customerList";
 	}
 	
 	@GetMapping("/customerVisit")
