@@ -9,5 +9,6 @@ import com.cafe24.radev.vo.Customer;
 @Mapper
 public interface CustomerMapper {
 	public List<Customer> getCustomerList();
-	public void getCustomerInsert();
+	public void getCustomerInsert(Customer customer);
+	public String getCustomerInsertAjax(String name, String birth, String phone);
 }
