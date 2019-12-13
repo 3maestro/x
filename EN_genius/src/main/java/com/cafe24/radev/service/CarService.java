@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.cafe24.radev.mapper.CarMapper;
 import com.cafe24.radev.vo.VoCarDetail;
+import com.cafe24.radev.vo.VoCarOption;
 import com.cafe24.radev.vo.VoCarRegister;
 
 @Service
@@ -15,9 +16,27 @@ public class CarService {
 	
 	@Autowired private CarMapper carMapper;
 	
-	public List<VoCarDetail> getYearCarSelect() {
-		return carMapper.getYearCarSelect();
+	public List<VoCarOption> getOpGradeSelect() {
+		return carMapper.getOpGradeSelect();
 	}
+	
+	/**
+	 * 차량 Detail Insert 메서드
+	 * @param voDetail
+	 * @return
+	 */
+	public int getDetailInsert(VoCarDetail voDetail) {		
+		return carMapper.getDetailInsert(voDetail);
+	}
+	
+	/**
+	 * 연도별 차량 메서드
+	 * @return
+	 */
+	public List<VoCarDetail> getYearCarSelect() { 
+		return carMapper.getYearCarSelect(); 
+	}
+	 
 	
 	/**
 	 * 차량 모델 메서드

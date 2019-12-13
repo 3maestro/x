@@ -3,6 +3,7 @@ package com.cafe24.radev.mapper;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.cafe24.radev.vo.VoCarDetail;
+import com.cafe24.radev.vo.VoCarOption;
 import com.cafe24.radev.vo.VoCarRegister;
 
 import java.util.List;
@@ -10,7 +11,25 @@ import java.util.List;
 @Mapper
 public interface CarMapper {
 	
+	/**
+	 * 차량 옵션등급 메서드
+	 * @return
+	 */
+	public List<VoCarOption> getOpGradeSelect();
+	
+	/**
+	 * voCarDetail insert
+	 * @param voDetail
+	 * @return
+	 */
+	public int getDetailInsert(VoCarDetail voDetail);
+	
+	/**
+	 * 연도별 차량 메서드
+	 * @return
+	 */
 	public List<VoCarDetail> getYearCarSelect();
+	
 	
 	/**
 	 * 차량 모델 메서드 (차량 모델 코드, 차량 모델 명)
