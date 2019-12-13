@@ -26,6 +26,7 @@ public class CustomerService {
 			Customer customer = new Customer();
 			customer = list.get(i);
 			customer.setCustomerCode(customer.getCustomerCode().replace(customer.getBsCode()+"_", ""));
+			customer.setCustomerBirth(customer.getCustomerBirth().replace("-", "").substring(2));
 		}
 		return list;
 	}
