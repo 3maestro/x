@@ -13,6 +13,7 @@ public class VoCarOption {
 	private String lastOptionCode; // 차량선택옵션최종코드(PK)
 	private String loWriter; // 최종 옵션 작성자
 	private String loDate; // 최종 옵션 작성일자
+	private String group_Code; //그룹화 코드
 	public String getOptionGradeCode() {
 		return optionGradeCode;
 	}
@@ -79,13 +80,19 @@ public class VoCarOption {
 	public void setLoDate(String loDate) {
 		this.loDate = loDate;
 	}
-	
+	public String getGroup_Code() {
+		return group_Code;
+	}
+	public void setGroup_Code(String group_Code) {
+		this.group_Code = group_Code;
+	}
 	@Override
 	public String toString() {
 		return "VoCarOption [optionGradeCode=" + optionGradeCode + ", optionGradeName=" + optionGradeName
 				+ ", ogWriter=" + ogWriter + ", ogDate=" + ogDate + ", choiceOptionCode=" + choiceOptionCode
 				+ ", choiceOptionName=" + choiceOptionName + ", coWriter=" + coWriter + ", coDate=" + coDate
-				+ ", lastOptionCode=" + lastOptionCode + ", loWriter=" + loWriter + ", loDate=" + loDate + "]";
+				+ ", lastOptionCode=" + lastOptionCode + ", loWriter=" + loWriter + ", loDate=" + loDate
+				+ ", group_Code=" + group_Code + "]";
 	}
 	
 	

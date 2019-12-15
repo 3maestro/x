@@ -1,15 +1,57 @@
 package com.cafe24.radev.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
+import com.cafe24.radev.vo.VoCarColor;
 import com.cafe24.radev.vo.VoCarDetail;
+import com.cafe24.radev.vo.VoCarFuel;
 import com.cafe24.radev.vo.VoCarOption;
 import com.cafe24.radev.vo.VoCarRegister;
 
-import java.util.List;
-
 @Mapper
 public interface CarMapper {
+	
+	
+	public List<VoCarFuel> getPowTrainSelect();
+	
+	public List<VoCarFuel> getDriveWaySelect();
+	/**
+	 * 차량 트렌스미션 선택 메서드
+	 * @return
+	 */
+	public List<VoCarFuel> getTrnsMiSelect();
+	
+	/**
+	 * 차량 엔진 선택 메서드
+	 * @return
+	 */
+	public List<VoCarFuel> getEngineSelect();
+	
+	/**
+	 * 차량 연료 선택 메서드
+	 * @return
+	 */
+	public List<VoCarFuel> getFuelSelect();
+	
+	/**
+	 * 차량 중분류 컬러선택 메서드
+	 * @return
+	 */
+	public List<VoCarColor> getMidColSelect();
+	
+	/**
+	 * 차량 대분류 컬러선택 메서드
+	 * @return
+	 */
+	public List<VoCarColor> getBigColSelect();
+	
+	/**
+	 * 차량 선택옵션 메서드
+	 * @return
+	 */
+	public List<VoCarOption> getCarOpChoiceSelect();
 	
 	/**
 	 * 차량 옵션등급 메서드
