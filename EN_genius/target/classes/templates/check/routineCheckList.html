@@ -18,68 +18,137 @@
 				var check = [];
 				var checkSize = $("input:checkbox[name='check']:checked").length
 				console.log(checkSize)
+				var checkResult;
 /* 				var checkVal; 
 				$('input:checkbox[name="check"]').each(function(){
 					checkVal = $("input:checkbox[name='check']:checked").val()
 					console.log(checkVal + '!!!!')
 					
 				}) */
+	
+// 				$('input[name="check"]')each(function(){
+					
+// 				})
 				
  				var checkThis = $('table[name="routineList"]')
  				console.log(checkThis + '<-this')
-                $('input[name="check"]:checked').each(function(i){//체크된 리스트 저장
+               
+ 				$('input[name="check"]:checked').each(function(i){//체크된 리스트 저장
+ 					checkResult = $('.checkBox').prop("checked"); //체크 여부
+					console.log(checkResult + "<-체크 됐니?")
                     var checked = check.push($(this).val());
+				
                 	//console.log(checked)
                 });
 				
 				if(check == "undefined" || check == null){
 					alert('항목을 체크 하시오.')
-				}else{
+				}else{		
 					console.log(check + '<-뭐니')
 					var request = $.ajax({
 						  url: "/askCheck",	//호출될 url
 						  method: "POST",
 						  //최근 수리 내역 중 수리항목코드와 당시 수리 날짜
-						  data: {"check" : check, "car":"KHMAJOU135795"},//파라미터
+						  data: {"check" : check, "car":"KHMAJOU135797"},//파라미터
 						  dataType: "json"		//응답 타입
 					});
-						 			
+					
 					request.done(function( data ) {
 						console.log(data + " <-data")
-					
-					for(var i=0; i<data.length; i++){
-						var getRiCode = data[i];
-						//console.log(getRiCode)
-//						console.log(checkVal + '<-checkVal')
-						if(getRiCode == check[i]){
-							console.log(check[i])
-  							console.log('교환필요')
-  							var o =checkThis.find('#o')
-  							
-// // 							//console.log(check + '<-check?')
- 							o.attr('style', 'display: block')
-//   							var o = checkThis.find('#o');
-   							console.log(o+"<<<<<<");
-//   							console.log(o.text());
-  							
-// 							/* var oo = o.find('#o');
-// 							console.log(oo) */
-//  							//oo.attr('style', 'display: block')
-						}
-						/* else if(getRiCode==check[i]){
-							console.log('교환필요없음')
-							var x =checkThis.find('.x')
-							//console.log(check + '<<<<<')
-							$('.x').attr('style', 'display: block')
-						} */
-					}
+						console.log(checkResult + "<<<<<")
+							
+// 						if(checkResult == 'true'){
+// 							console.log('체크 됐다!!')
 						
+// 						}else{
+	// && a.val() != 'undefined' && checkResult == true   || getRiCode == null || getRiCode == 'undefined'
+							//&& checkResult == true 
+						//console.log('체크 됐다!!!!!!!')
+						
+						if(data != ""){
+							
+							
+							
+							for(var i=0; i<data.length; i++){
+								var getRiCode = data[i];
+								console.log(getRiCode + "getRiCode");
+								
+								var checkbox = $('input[name="check"]:checked')
+								
+								checkbox.each(function(i){
+									var tr = checkbox.parent().parent().eq(i)
+									var td = tr.children();
+									var a= $(this)
+									
+									console.log(getRiCode + ">>>getRiCodegetRiCode")
+									console.log(a + ">>>asdfsada")
+									//var a= $("input[type='checkbox']:checked")			
+									console.log(a.val() + ">>>a")
+									console.log(check[i] + ">>>check[i]")
+									//console.log(getRiCode)
+			//						console.log(checkVal + '<-checkVal')
+		// 							if(getRiCode == a.val() && getRiCode != ''){
+										
+		// 							}
+									if(getRiCode == a.val()){
+										console.log('교환필요')
+										td.eq(5).text('교환필요')
+										//a.html('<td>교환필요</td>')
+// 										var b = a.parent()
+// 										b.find('.o').attr('style', 'display: block')
+// 										$("input[type='checkbox']:checked").empty();
+// 	 									$("input[type='checkbox']:checked").remove();
+									}
+									else if(getRiCode == ''){
+										td.eq(5).text('확인필요')
+										console.log('확인필요')
+							
+										//a.parent().append('확인필요')
+									}
+// 									$("input[type='cheeckbox']:checked").empty();
+//  									$("input[type='checkbox']:checked").remove();
+								})
+								
+		  							//console.log($('td[th:value]') + "val")
+								
+		  							//console.log($('#a').val() + "]]][][]")
+									//$('input[type="checkbox"]:checked').each(function(i){//체크된 리스트 저장
+									//var b= $("input[type='checkbox']:checked")	
+									//a.find('.o').append('교환필요')
+									//a.parent().append('교환필요')
+	// 									a.parent().append(function(){
+	// 										if(ox == 'o' && checkResult == true){
+	// 											console.log('교환필요')
+	// 										}else if(ox == 'x' && checkResult == true){
+	// 											console.log('교환필요없음')
+	// 										}
+	// 									})
+										
+										//var b = a.parent()
+										//b.find('.o').attr('style', 'display: block')
+										//.append('교환필요')
+										//a.parent().html('<td>교환필요<td>')
+										//.find('.o').attr('style', 'display: block')
+						           //    console.log(a + "<-aaa")
+	// 								$("input[type='checkbox']:checked").empty();
+	// 								$("input[type='checkbox']:checked").remove();
+					                	//console.log(checked)
+								
+	// 							else if(getRiCode == '' || getRiCode == null || getRiCode == 'undefined'){
+	// 								console.log('교환필요없음')
+	// 								a.parent().append('교환필요없음')
+	// 								$("input[type='checkbox']:checked").empty();
+	// 								$("input[type='checkbox']:checked").remove();
+	// 								//$('#cc').html('<td>교환필요<td>')
+	// 							}	
+							}		
+						}
 						
 					})
-					
+						
 					request.fail(function( jqXHR, textStatus ) {
 					  alert( "Request failed: " + textStatus );
-					});
+					});	 			
 				}
 			})
 		})
@@ -117,14 +186,25 @@
 				 
 				
 			</tr>
-			<tr th:each="l : ${routineCheckList}" id="ch">
+			<tr th:each="l : ${routineCheckList}" >
 				<td><input type="checkbox" class="checkBox" name="check" th:value="${l.riCode}"></td>
 				<td th:value = "${l.riCode}" th:text = "${l.riCode}" ></td>
 				<td th:value = "${l.riItem}" th:text = "${l.riItem}" ></td>
 				<td th:value = "${l.distanceCycle}" th:text="${l.distanceCycle}"></td>
-				<td th:value = "${l.periodCycle}" th:text="${l.periodCycle}"></td>
-				<td style="display: none;" id="o">교환필요</td>
-				<td style="display: none;" class="x">교환필요없음</td>
+				<td th:value = "${l.periodCycle}" th:text="${l.periodCycle}" id="cc"></td>
+				<td></td>
+				
+<!-- 				<div class="o">
+					<td  style="display: none"></td>
+				</div>
+				<div class="x">
+					<td  style="display: none"></td>
+				</div> -->
+
+<!-- 				
+ -->
+<!-- 				<td class='.o'></td> -->
+<!-- 				 -->
 			</tr>
 		</table>
 

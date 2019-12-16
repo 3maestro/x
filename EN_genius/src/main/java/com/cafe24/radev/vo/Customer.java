@@ -8,13 +8,12 @@ public class Customer {
 	private String customerName;
 	private String customerBirth;
 	private String customerGender;
-	private String customerPost;
 	private String customerAddr;
 	private String customerPhone;
 	private String customerMemo;
 	
 	public String getCustomerCode() {
-		return customerCode;
+		return customerCode.replace(bsCode+"_", "");
 	}
 	public void setCustomerCode(String customerCode) {
 		this.customerCode = customerCode;
@@ -62,13 +61,6 @@ public class Customer {
 		this.customerGender = customerGender;
 	}
 	
-	public String getCustomerPost() {
-		return customerPost;
-	}
-	public void setCustomerPost(String customerPost) {
-		this.customerPost = customerPost;
-	}
-	
 	public String getCustomerAddr() {
 		return customerAddr;
 	}
@@ -94,8 +86,7 @@ public class Customer {
 	public String toString() {
 		return "Customer [customerCode=" + customerCode + ", bsCode=" + bsCode + ", eiCode=" + eiCode
 				+ ", customerSign=" + customerSign + ", customerName=" + customerName + ", customerBirth="
-				+ customerBirth + ", customerGender=" + customerGender + ", customerPost=" + customerPost
-				+ ", customerAddr=" + customerAddr + ", customerPhone=" + customerPhone + ", customerMemo="
-				+ customerMemo + "]";
+				+ customerBirth + ", customerGender=" + customerGender + ", customerAddr=" + customerAddr
+				+ ", customerPhone=" + customerPhone + ", customerMemo=" + customerMemo + "]";
 	}
 }

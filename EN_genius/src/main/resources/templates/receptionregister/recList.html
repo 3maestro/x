@@ -37,9 +37,9 @@
                             <th>접수자</th>
                             <tr>
                         </thead>
-                        <!-- <tfoot>
+                        <tfoot>
                          
-                            <th>접수 번호</th>
+                           <!--  <th>접수 번호</th>
                             <th>업체 명</th>
                             <th>수리 구분</th>
                             <th>고객 이름</th>
@@ -48,26 +48,25 @@
                             <th>고객 차량</th>                            
                             <th>상태 현황</th>
                             <th>접수 시간</th>
-                            <th>접수자</th>
+                            <th>접수자</th> -->
                             
                           </tr>
                           </tr>
-                        </tfoot> -->
-                       <tbody>
+                        </tfoot>
+                       <!--  <tbody>
                        
                        
-	                          <tr th:each="rl:${vorecreg}">
-	                            <td th:text="${rl.receptionCode}"></td>
-	                       	    <td th:text="${rl.bsCode}"></td>
-	                            <td th:text="${rl.customerCarInfoCode}"></td>
-	                            <td th:text="${rl.repairClassCode}"></td>
-	                       	    <td th:text="${rl.displaceMent}"></td>
-	                            <td th:text="${rl.receptionDate}"></td>
+	                          <tr th:each="reL : ${vorecreg}">
+	                            <td th:text="${vorecreg.inChoice}"></td>
+	                       	    <td th:text="${vorecreg.viNumber}"></td>
+	                            <td th:text="${vorecreg.displaceMent}"></td>
+	                          
+	                           
 	                          </tr>
 	                        
                         
                         
-                        </tbody>
+                        </tbody> -->
                       </table>
                   </div>
                 </div>

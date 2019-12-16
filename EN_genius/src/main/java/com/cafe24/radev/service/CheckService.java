@@ -40,7 +40,9 @@ public class CheckService {
 		
 		
 		List<String> oxList = new ArrayList<String>();
-		
+//		List<String> getRiCodeList = new ArrayList<String>();
+
+		//Map<String,String> map = new HashMap<String,String>();
 		AskCheck ask = null;
 		
 		/**
@@ -78,13 +80,16 @@ public class CheckService {
 						//과거 수리 내역의 최근수리 일자와 현재 일자의 차이가 기간별 교환주기 보다 크거나 같다면 교환 필요
 						if(intPeriod >= ask.getPeriodCycle()) {
 							System.out.println("01 교환 필요");
+							System.out.println(getRiCode + " 01 교환 필요 getRiCode");
 							oxList.add(getRiCode);
 							
 						//과거 수리 내역의 최근 수리 일자와 현재 일자의 차이가 기간별 교환 주기보다 작다면 교환 필요 없음
-						}else if(intPeriod < ask.getPeriodCycle()) {
-							System.out.println("01 교환 필요 없음");
-							oxList.add(getRiCode);	
 						}
+//						if(intPeriod < ask.getPeriodCycle()) {
+//							System.out.println("01 교환 필요 없음");
+//							System.out.println(getRiCode + " 01 교환 필요 없음 getRiCode");
+//							oxList.add(getCheckCode);	
+//						}
 					}
 				}
 				
@@ -122,10 +127,11 @@ public class CheckService {
 							System.out.println("02 교환 필요");
 							oxList.add(getRiCode);
 						//최근 수리 받은 일자와 현재날짜의 차이를 계산후 기간별 교환 주기보다 작을 때 교환 필요 없음
-						}else if(intPeriod < ask.getPeriodCycle()) {
-							System.out.println("02 교환 필요 없음");
-							oxList.add(getRiCode);	
-						}					
+						}
+//						if(intPeriod < ask.getPeriodCycle()) {
+//							System.out.println("02 교환 필요 없음");
+//							oxList.add(getCheckCode);	
+//						}					
 					}
 				}
 			}
