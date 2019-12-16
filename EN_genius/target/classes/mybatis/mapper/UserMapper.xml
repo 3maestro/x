@@ -61,13 +61,15 @@
 			select max(CAST(SUBSTRING(bs_code,5) AS DECIMAL)) as maxcol from business_tb;
 		</select>
 		<select id="imageCodeMax" resultType="int">
-			select max(CAST(SUBSTRING(image_file_code,7) AS DECIMAL)) as maxcol from image_file_tb;
+			select max(CAST(SUBSTRING(image_file_code,8) AS DECIMAL)) as maxcol from image_file_tb;
 		</select>
 		<select id="carFactoryList" resultMap="carFactoryResultMap">
 			SELECT 
 				* 
-			FROM 
-				 business_tb
+			from 
+				business_tb 
+			WHERE 
+				bs_writer NOT IN('관리자');
 		</select>
 		<select id="selectImage" resultType="String">
 			SELECT 

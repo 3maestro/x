@@ -93,6 +93,13 @@ public class UserService {
 	public String selectImage(String bsCode) {
 		return userMapper.selectImage(bsCode);
 	}
+	
+	public int approvalCheck(String[] bsCode) {
+		for(int i=0;i<bsCode.length;i++) {
+			System.out.println("코드값--------->"+bsCode[i]);
+		}
+		return userMapper.approvalCheck(bsCode);
+	}
 /********************************************************************************************************로그인*/
 
 	public Map<String,Object> adminLogin(CarFactory carFactory) {

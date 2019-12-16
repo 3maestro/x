@@ -15,7 +15,7 @@
 			
 			$("#check-all").click(function(){
 				var isCheck = $(this).is(':checked');
-				var checklist = $('.check-list');
+				var checklist = $('input:checkbox[name="bsCode"]');
 				console.log(isCheck)
 				if(isCheck){
 					checklist.prop('checked',true);
@@ -24,15 +24,34 @@
 				}
 			});
 			
-
+			$('[name=bsCodePopupBtn]').click(function(){
+				
+				var bsCode = $(this).attr('data-bsCode');
+				
+				var width = 700
+				var height = 900
+				
+				var popupX = (document.body.offsetWidth / 2) - (width / 2);
+				var popupY = (document.body.offsetHeight  / 2) - (height / 2);
+				
+				var request = $.ajax({
+					url:"/selectImage",
+					method: "POST",
+					data : { 'bsCode' : bsCode }, 
+					dataType : "text"			
+				});
+				
+				request.done(function(data){
+					console.log(data);		
+					window.open('/file-upload/'+data , 'Image' , 'status=no, width='+width+'px, height='+height+'px, left='+ popupX + ', top='+ popupY +', resizable=1');
+		
+				});
+				request.fail(function(jqXHR, textStatus){
+					alert("첨부파일 출력 중 오류가 발생하였습니다.");			
+				});				
+			});
 		});
-			function popupOpen(){
-
-				var popUrl = "/static/와.jpg";	//팝업창에 출력될 페이지 URL
-
-				var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-					window.open(popUrl,"1",popOption);
-				}
+				
 	</script>
 	</th:block>
 	
@@ -42,7 +61,8 @@
             <div class="card-header">
                 <strong class="card-title">사업장 리스트</strong>
             </div>
-            <div class="card-body">
+            <div class="card-body">  
+            <form th:action="@{/approvalCheck}">
                 <table class="table">
                     <thead>
                         <tr>
@@ -61,21 +81,21 @@
                   <tbody th:each="c : ${carfactorylist}">
                     <tr>
                         <td class="a-center ">
-                          <input type="checkbox" class="check-list">
+                          <input type="checkbox" name="bsCode" th:value="${c.bsCode}">
                         </td>
                         <!-- <th scope="row">1</th> -->
                         <td><span class="name" th:text="${c.bsName}"></span></td>
                         <td><span class="name" th:text="${c.bossName}"></span></td>
                         <td><span class="nana" th:text="${c.bsAddr}"></span></td>
                         <td><span class="name" th:text="${c.bsTelephone}"></span></td>
-                        <td><span class="name" th:text="${c.bsCheck}"></span></td>
-                        <td><a href="javascript:popupOpen();">11</a></td>
-<!--                         <td><a th:href="@{/selectImage(bsCode=${c.bsCode})}">서류</a></td> -->
+                        <td><span class="name" th:text="${c.bsCheck}"></span></td>                       
+                        <td><button th:data-bsCode="${c.bsCode}" th:text="서류" name="bsCodePopupBtn" class="btn btn-outline-link"></button></td>
                     </tr>
-                </tbody>
+                </tbody>          
             </table>
-          		<button type="button" class="btn btn-outline-primary" style="float: right;">승인</button>
-        </div>
+          	<hr><button type="submit" class="btn btn-outline-primary" style="float: right; border-bottom-right-radius: 0.5em;">승인</button>
+            </form>   
+        </div>    
     </div>
 		</div>
 	</th:block>

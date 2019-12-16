@@ -23,4 +23,6 @@ public interface UserMapper {
 	List<CarFactory> carFactoryList();
 	
 	String selectImage(String bsCode);
+	
+	int approvalCheck(String[] bsCode);
 }

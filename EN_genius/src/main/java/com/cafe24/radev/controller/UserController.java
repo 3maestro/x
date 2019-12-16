@@ -80,10 +80,17 @@ public class UserController {
 		return "/carfactory/carFactoryList";
 	}
 	
-	@GetMapping("/selectImage")
-	public String selectImage(@RequestParam(value = "bsCode")String bsCode) {
+	@PostMapping("/selectImage")
+	public @ResponseBody String selectImage(@RequestParam(value = "bsCode") String bsCode, Model model) {
 		System.out.println("코드값" + bsCode);
-		return "";
+		System.out.println(userService.selectImage(bsCode));		
+		return userService.selectImage(bsCode);
+	}
+	
+	@GetMapping("/approvalCheck")
+	public String aaa(@RequestParam(value = "bsCode") String[] bsCode) {
+		userService.approvalCheck(bsCode);
+		return "/carfactory/carFactoryList";
 	}
 /********************************************************************************************************로그인*/	
 	/**
