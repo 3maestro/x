@@ -13,6 +13,7 @@
 		<result property="customerName"		column="customer_name"/>
 		<result property="customerBirth"	column="customer_birth"/>
 		<result property="customerGender"	column="customer_gender"/>
+		<result property="customerPost"		column="customer_post"/>
 		<result property="customerAddr"		column="customer_addr"/>
 		<result property="customerPhone"	column="customer_phone"/>
 		<result property="customerMemo"		column="customer_memo"/>
@@ -26,27 +27,44 @@
 			,customer_name
 			,customer_birth
 			,customer_gender
+			,customer_post
 			,customer_addr
 			,customer_phone
 			,customer_memo
 		FROM
 			customer_tb
 		WHERE
-			bs_code='cp001'
+			bs_code='bs001'
+	</select>
+	<select id="getCustomerInsertAjax" resultType="String">
+	  	SELECT 
+			customer_code
+		FROM
+			customer_tb
+		WHERE
+				bs_code='bs001'
+			AND 
+				customer_name=#{name}
+			AND 
+				customer_birth=#{birth}
+			AND 
+				customer_phone=#{phone}
 	</select>
 	<insert id="getCustomerInsert" parameterType="com.cafe24.radev.vo.Customer">
-		INSERT INTO tb_member(
-			 m_id
-			,m_pw
-			,m_level
-			,m_name
-			,m_email
-		)VALUES(
-			 #{memberId}
-			,#{memberPw}
-			,#{memberLevel}
-			,#{memberName}
-			,#{memberEmail}
+		INSERT INTO
+			customer_tb
+		VALUES(
+			 #{customerCode}
+			,#{bsCode}
+			,#{eiCode}
+			,now()
+			,#{customerName}
+			,#{customerBirth}
+			,#{customerGender}
+			,#{customerPost}
+			,#{customerAddr}
+			,#{customerPhone}
+			,#{customerMemo}
 		)
 	</insert>
 </mapper>

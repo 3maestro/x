@@ -11,6 +11,71 @@
 <mapper namespace="com.cafe24.radev.mapper.CarMapper">
 	<!-- id : mapper 관련 메서드명 resultType : vo주소.vo명 -->
 	
+	<resultMap type="com.cafe24.radev.vo.VoCarDetail" id="CarDetailMap">
+		
+		<result property="originCode" column="origin_code"/>
+		<result property="originMain" column="origin_main"/>
+		<result property="vendorCode" column="vendor_code"/>
+		<result property="vendorName" column="vendor_name"/>
+		<result property="carClassCode" column="car_class_code"/>
+		<result property="carClassMain" column="car_class_main"/>
+		<result property="carModelCode" column="car_model_code"/>
+		<result property="carModelName" column="car_model_name"/>
+		<result property="cmWriter" column="cm_writer"/>
+		<result property="cmDate" column="cmD_date"/>
+		<result property="yearCarCode" column="year_car_code"/>
+		<result property="carModelDetail" column="car_model_detail"/>
+		<result property="sellStartYear" column=""/>
+		<result property="sellEndYear" column=""/>
+		<result property="ycWriter" column=""/>
+		<result property="ycDate" column=""/>
+		<result property="" column=""/>
+		<result property="" column=""/>
+		<result property="" column=""/>
+		<result property="" column=""/>
+		<result property="" column=""/>
+
+	</resultMap>
+	
+	<!-- 연도별 차량 모델 -->
+	<select id="getYearCarSelect" resultMap="CarDetailMap">
+		SELECT 
+			year_car_code,car_model_detail
+		FROM 
+			year_car_tb
+	</select>
+	
+	<!-- 차량 모델 종류 -->
+	<select id="getCarModelSelect" resultMap="CarDetailMap">
+		SELECT 
+			car_model_code, car_model_name,
+			cm_writer,cm_date
+		FROM 
+			car_model_tb
+	</select>
+	
+	<!-- 차량 종류 선택 -->
+	<select id="getCarClassSelect" resultMap="CarDetailMap">
+		SELECT 
+			car_class_code, car_class_main
+		FROM 
+			car_class_tb
+	 </select>
+	<!-- 제작회사 선택 -->
+	<select id="getCarVendorSelect" resultMap="CarDetailMap">
+		SELECT 
+			vendor_code, vendor_name
+		FROM 
+			vendor_tb
+	</select>
+	
+	<!-- 차량 등록 국가 선택 쿼리 -->
+	<select id="getCarOriginSelect" resultMap="CarDetailMap">
+		SELECT 
+			origin_code, origin_main
+	FROM origin_tb
+	</select>
+	
 	<!-- 차량 수정 조회 쿼리 -->
 	<select id="getCarUpdate" parameterType="String" resultType="com.cafe24.radev.vo.VoCarRegister">
 			SELECT 
@@ -38,38 +103,32 @@
 	<insert id="getCarInsert" parameterType="com.cafe24.radev.vo.VoCarRegister" >
 		INSERT INTO
 			customer_car_info_table
-				(customer_car_info_code,
-				customer_code,
-				customer_car_number,
+				(origin_code,
+				origin_main,
 				vendor_code,
-				
-				last_distance_driven)
+				vendor_name)
 		VALUES(
-				#{customerCarInfoCode},
-				#{customerCode},
-				#{customerCarNumber},
+				#{originCode},
+				#{originMain},
 				#{vendorCode},
-				#{lastDistanceDriven})
+				#{vendorCode},
+				#{vendorName})
 	</insert>
 	<!-- 값을 [리턴받아] 사용할때 리절트 타입을 사용한다 -->
 	<!-- 차량 리스트 조회 쿼리 -->
-	<select id="getCarList" resultType="com.cafe24.radev.vo.VoCarRegister">
+	
+	
+	
+	 <select id="getCarList" resultType="com.cafe24.radev.vo.VoCarRegister">
 		SELECT 
-			customer_car_info_code AS customerCarInfoCode,
-			bs_code AS bsCode,
-			customer_code AS customerCode,
-			customer_car_number AS customerCarNumber,
-			vendor_code AS vendorCode,
-			rc_code AS rcCode,
-			car_production_year AS carProductionYear,
-			car_registration_date AS carRegistrationDate,
-			last_distance_driven AS lastDistanceDriven,
-			last_visit_date AS lastVisitDate,
-			customer_car_info_writer AS customerCarInfoWriter,
-			customer_car_info_date AS customerCarInfoDate
-			
+			ori.origin_code,
+			ori.origin_main,
+			ven.vendor_code, 
+			ven.vendor_name
 		FROM
-			customer_car_info_table
+		 	 origin_tb AS ori,
+			 vendor_tb AS ven
+			
 	</select>
 
 	
