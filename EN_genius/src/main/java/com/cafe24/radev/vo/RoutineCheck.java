@@ -9,7 +9,6 @@ public class RoutineCheck {
 	private int periodCycle;
 	private String riWriter;
 	private String riDate;
-	private boolean checkOX;
 	
 	public String getRiCode() {
 		return riCode;
@@ -53,20 +52,12 @@ public class RoutineCheck {
 	public void setRiDate(String riDate) {
 		this.riDate = riDate;
 	}
-	public boolean isCheckOX() {
-		return checkOX;
-	}
-	public void setCheckOX(boolean checkOX) {
-		this.checkOX = checkOX;
-	}
 	
 	@Override
 	public String toString() {
 		return "RoutineCheck [riCode=" + riCode + ", bsCode=" + bsCode + ", riItem=" + riItem + ", distanceCycle="
 				+ distanceCycle + ", periodCycle=" + periodCycle + ", riWriter=" + riWriter + ", riDate=" + riDate
-				+ ", checkOX=" + checkOX + "]";
+				+ "]";
 	}
-	
-	
 	
 }
