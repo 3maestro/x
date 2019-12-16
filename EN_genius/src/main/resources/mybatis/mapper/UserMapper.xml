@@ -16,7 +16,8 @@
 			<result property="bsAddr"			column="bs_addr"/>
 			<result property="bsTelephone"		column="bs_telephone"/>
 			<result property="bsRegistration"	column="bs_registration"/>
-			<result property="bsWriter"	column="bs_writer"/>
+			<result property="bsWriter"			column="bs_writer"/>
+			<result property="bsCheck"			column="bs_check"/>
 		</resultMap>
 		<resultMap type="com.cafe24.radev.vo.ImageFile" id="imageFileResultMap">
 			<result property="imageCode" 			column="image_file_code"/>
@@ -67,6 +68,12 @@
 				* 
 			FROM 
 				 business_tb
+		</select>
+		<select id="imageList" resultMap="imageFileResultMap">
+			SELECT 
+				* 
+			FROM 
+				 image_file_tb
 		</select>
 		
 	</mapper>

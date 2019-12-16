@@ -77,6 +77,30 @@
 					return false;
 				}
 			}); 
+				
+/* 			 var checkAjaxSetTimeout;
+			    $('#boss_id').keyup(function(){
+			        clearTimeout(checkAjaxSetTimeout);
+			        checkAjaxSetTimeout = setTimeout(function(){
+			        if( $('#boss_id').val().length > 10) {
+			            var bossId = $(this).val();
+			            
+			            var request = $.ajax({
+			                url : "/idCheckCall",
+			                method : "POST",
+			                data: { id : id },
+			                success : function(result) {
+			                    //console.log(result);
+			                    if (result == "ok") {
+			                        $("#result_id_msg").html("사용 가능한 아이디 입니다.");
+			                    } else {
+			                        $("#result_id_msg").html("사용 불가능한 아이디 입니다.");
+			                    }
+			                }
+			            });
+			            1000});
+			        }
+			    }); */
 		});	
 	</script>
 	</th:block>

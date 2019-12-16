@@ -20,6 +20,7 @@ public class CarFactory {
 	private String bsTelephone;
 	private String bsRegistration;
 	private String bsWriter;
+	private String bsCheck;
 	public String getBsCode() {
 		return bsCode;
 	}
@@ -98,12 +99,18 @@ public class CarFactory {
 	public void setBsWriter(String bsWriter) {
 		this.bsWriter = bsWriter;
 	}
+	public String getBsCheck() {
+		return bsCheck;
+	}
+	public void setBsCheck(String bsCheck) {
+		this.bsCheck = bsCheck;
+	}
 	@Override
 	public String toString() {
 		return "CarFactory [bsCode=" + bsCode + ", level=" + level + ", bossId=" + bossId + ", bossPw=" + bossPw
 				+ ", bossName=" + bossName + ", bossPhonenum=" + bossPhonenum + ", bossEmail=" + bossEmail + ", bsName="
 				+ bsName + ", bsNumber=" + bsNumber + ", bsAddr=" + bsAddr + ", bsTelephone=" + bsTelephone
-				+ ", bsRegistration=" + bsRegistration + ", bsWriter=" + bsWriter + "]";
+				+ ", bsRegistration=" + bsRegistration + ", bsWriter=" + bsWriter + ", bsCheck=" + bsCheck + "]";
 	}
-
+	
 }
