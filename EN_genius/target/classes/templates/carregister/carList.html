@@ -43,11 +43,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="CL : ${vcreg}">
-                                            <td th:text="${CL.customerCarInfoCode}"></td>
-                                            <td th:text="${CL.vendorCode}"></td>
-                                            <td th:text="${CL.customerCode}"></td>
-                                            <td th:text="${CL.customerCarNumber}"></td>
+                                        <tr th:each="CarInsert : ${voDetailInsert}">
+                                            <td th:text="${CarInsert.customerCarInfoCode}"></td>
+                                            <td th:text="${CarInsert.vendorCode}"></td>
+                                            <td th:text="${CarInsert.customerCode}"></td>
+                                            <td th:text="${CarInsert.customerCarNumber}"></td>
                                             
                                             <td><a th:href="@{/carUpdate(cus=${CL.customerCarInfoCode})}">수정</a></td>                                        
                                             <td><a th:href="@{#}">삭제</a></td>                                        

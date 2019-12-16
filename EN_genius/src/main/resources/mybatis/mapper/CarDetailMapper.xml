@@ -30,18 +30,23 @@
 		<result property="ycWriter" column="yc_writer"/>
 		<result property="ycDate" column="yc_date"/>
 		<result property="customerCarNumber" column="customer_car_number"/>
-
+		<result property="rcCode" column="rc_code"/>
+		<result property="carProductionYear" column="car_production_year"/>
 
 	</resultMap>
 	
 	<!-- Datail insert -->
 	<insert id="getDetailInsert" parameterType="com.cafe24.radev.vo.VoCarDetail">
 	INSERT INTO customer_car_info_table
-		(customer_car_info_code, bs_code, customer_code, customer_car_number, vendor_code, rc_code, car_production_year, car_registration_date, last_distance_driven, last_visit_date, customer_car_info_writer, customer_car_info_date)
+		(customer_car_info_code, bs_code, customer_code, customer_car_number, 
+		vendor_code, rc_code, car_production_year, car_registration_date, last_distance_driven, 
+		last_visit_date, customer_car_info_writer, customer_car_info_date)
 	VALUES 
-		('#{yearCarCode}', 
-		'', '여누공업사', '최영진', '${carProductionYear}', '${}', NOW(), NOW(), '${}', NOW(), '${}', NOW())
+		('#{customerCarInfoCode}', 
+		'cp001', '최영진', '${customerCarNumber}', '${carProductionYear}', '${vendorCode}', NOW(), NOW(), '${rcCode}', NOW(), 'id002', NOW())
 	</insert>
+	
+	
 	<!-- 연도별 차량 모델 -->
 	<select id="getYearCarSelect" resultMap="CarDetailMap">
 		SELECT 

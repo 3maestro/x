@@ -35,11 +35,11 @@ public class CarController {
 	 * @return
 	 */
 	@PostMapping("carRegister")
-	public String carRegister(VoCarDetail voDetail) {
+	public String carRegister(VoCarDetail voDetailInsert) {
 		System.out.println("CarController 클래스 carRegister 메서드 실행");
-		System.out.println(voDetail + "차량등록 값 확인");
+		System.out.println(voDetailInsert + "차량등록 값 확인");
 
-		carService.getDetailInsert(voDetail);
+		carService.getDetailInsert(voDetailInsert);
 		return "redirect:carList";
 	}
 

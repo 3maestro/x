@@ -18,8 +18,29 @@ public class VoCarDetail {
 	private String sellEndYear; // 판매종료년도
 	private String ycWriter; // 연도별 차량 모델 작성자
 	private String ycDate; // 연도별 차량 모델 작성일자
+	private String customerCarNumber; // 차량 넘버
+	private String rcCode;	// 등록증상자동차정보코드(FK), 차량명
+	private String carProductionYear; //자동차 등록일
 	
 	
+	public String getCarProductionYear() {
+		return carProductionYear;
+	}
+	public void setCarProductionYear(String carProductionYear) {
+		this.carProductionYear = carProductionYear;
+	}
+	public String getRcCode() {
+		return rcCode;
+	}
+	public void setRcCode(String rcCode) {
+		this.rcCode = rcCode;
+	}
+	public String getCustomerCarNumber() {
+		return customerCarNumber;
+	}
+	public void setCustomerCarNumber(String customerCarNumber) {
+		this.customerCarNumber = customerCarNumber;
+	}
 	public String getOriginCode() {
 		return originCode;
 	}
@@ -120,10 +141,11 @@ public class VoCarDetail {
 	public String toString() {
 		return "VoCarDetail [originCode=" + originCode + ", originMain=" + originMain + ", vendorCode=" + vendorCode
 				+ ", vendorName=" + vendorName + ", carClassCode=" + carClassCode + ", carClassMain=" + carClassMain
-				+ ", carModelCode=" + carModelCode + ", cmWriter=" + cmWriter + ", cmDate=" + cmDate + ", carModelName="
-				+ carModelName + ", yearCarCode=" + yearCarCode + ", carModelDetail=" + carModelDetail
+				+ ", carModelCode=" + carModelCode + ", carModelName=" + carModelName + ", cmWriter=" + cmWriter
+				+ ", cmDate=" + cmDate + ", yearCarCode=" + yearCarCode + ", carModelDetail=" + carModelDetail
 				+ ", sellStartYear=" + sellStartYear + ", sellEndYear=" + sellEndYear + ", ycWriter=" + ycWriter
-				+ ", ycDate=" + ycDate + "]";
+				+ ", ycDate=" + ycDate + ", customerCarNumber=" + customerCarNumber + ", rcCode=" + rcCode
+				+ ", carProductionYear=" + carProductionYear + "]";
 	}
 	
 	
