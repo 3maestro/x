@@ -1,5 +1,6 @@
 package com.cafe24.radev.controller;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,21 @@ public class StoreController {
 		
 		model.addAttribute("storeList", storeservice.getStoreList());
 		
+=======
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class StoreController {
+	
+	/**
+	 * 거래처 목록
+	 * @return
+	 */
+	@GetMapping("/storeList")
+	public String getStoreList() {
+>>>>>>> refs/heads/jsh
 		return "/store/storeList";
 	}
 	/**

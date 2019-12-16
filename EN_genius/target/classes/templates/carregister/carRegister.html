@@ -3,6 +3,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout/default}">
 
+<<<<<<< HEAD
 <th:block layout:fragment="customTitle">
 	<title>EN_genius</title>
 </th:block>
@@ -209,4 +210,47 @@
         </div>
 </div>
 </th:block>
+=======
+	<th:block layout:fragment="customTitle">
+		<title>EN_genius</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+	
+	<div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header"><strong>차량 등록</strong>
+                            <small> 졸리다..</small></div>
+                            <div class="card-body card-block">
+                            	<form th:action="@{carRegister}" method="Post">
+                                <div class="form-group"><label for="company" class=" form-control-label">차대번호</label><input type="text" id="company" placeholder="차대번호" class="form-control" name="customerCarInfoCode"></div>
+                                <div class="form-group"><label for="vat" class=" form-control-label">고객 이름</label><input type="text" id="vat" placeholder="고객 이름" class="form-control" name="customerCode"></div>
+                                <div class="form-group"><label for="street" class=" form-control-label">차량 번호</label><input type="text" id="street" placeholder="차량 번호" class="form-control" name="customerCarNumber"></div>
+                                <div class="row form-group">
+                                    <div class="col-8">
+                                        <div class="form-group"><label for="city" class=" form-control-label">상세 차량 명</label><input type="text" id="city" placeholder="" class="form-control" name="rc_code"></div>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="form-group"><label for="postal-code" class=" form-control-label">제작 회사</label><input type="text" id="postal-code" placeholder="제작 회사" class="form-control" name="vendorCode"></div>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="form-group"><label for="postal-code" class=" form-control-label">생산년도</label><input type="text" id="postal-code" placeholder="생산년도" class="form-control" name="carProductionYear"></div>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="form-group"><label for="postal-code" class=" form-control-label">자동차 등록일</label><input type="text" id="postal-code" placeholder="자동차 등록일" class="form-control" name="carRegistrationDate"></div>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="form-group"><label for="postal-code" class=" form-control-label">마지막 방문시 주행거리</label><input type="text" id="postal-code" placeholder="마지막 방문시 주행거리" class="form-control" name="lastDistanceDriven"></div>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="form-group"><label for="postal-code" class=" form-control-label">마지막 방문일</label><input type="text" id="postal-code" placeholder="마지막 방문일" class="form-control" name="lastVisitDate"></div>
+                                    </div>
+                                    
+                               
+                          	  <button type="submit" class="btn btn-primary" name="carBtn">차량 등록</button>
+                        </div>
+                        </form>
+                    </div>
+	
+	</th:block>
+>>>>>>> refs/heads/jsh
 </html>

@@ -9,6 +9,7 @@ public class Part {
 	private String partPrice;
 	private String partWrite;
 	private String partUpdateDate;
+<<<<<<< HEAD
 	private String factory;
 	
 	public String getFactory() {
@@ -17,6 +18,9 @@ public class Part {
 	public void setFactory(String factory) {
 		this.factory = factory;
 	}
+=======
+	
+>>>>>>> refs/heads/jsh
 	public String getPartNumber() {
 		return partNumber;
 	}

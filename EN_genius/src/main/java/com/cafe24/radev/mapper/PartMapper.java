@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.cafe24.radev.vo.Part;
 @Mapper
 public interface PartMapper {
+<<<<<<< HEAD
 	/**
 	 * 
 	 * @return
@@ -30,4 +31,8 @@ public interface PartMapper {
 	 * @return
 	 */
 	public void partUpdateforMany(Part part);
+=======
+	public List<Part> getPartList();
+	public Part partSelectForOrder(String partNumber);
+>>>>>>> refs/heads/jsh
 }
