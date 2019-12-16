@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cafe24.radev.service.CheckService;
-import com.cafe24.radev.vo.Check;
+import com.cafe24.radev.vo.BasicCheck;
 import com.cafe24.radev.vo.RoutineCheck;
 
 @Controller
@@ -45,11 +45,24 @@ public class CheckController {
 		return list;
 	}
 	
-	@GetMapping("/basicCheckList")
-	public String basicCheckList() {
-		System.out.println("basicCheckList CheckController 호출");
+	@GetMapping("/basicCheck")
+	public String basicCheck() {
 		return "/check/basicCheckList";
 	}
+	
+	@PostMapping("/basicCheckList")
+	public @ResponseBody List<String> basicCheckList(
+			@RequestParam(value="bigCate", required = false) String bigCate) {
+		System.out.println("basicCheckList CheckController 호출");
+		System.out.println(bigCate + " <-bigCate basicCheckList CheckController.java");
+		
+		List<String> midCateList = checkService.getBasicCheckList(bigCate);
+		System.out.println(midCateList + " <-midCateList basicCheckList CheckController.java");
+		
+		return midCateList;
+	}
+	
+
 	
 	//@ResponseBody Map<String, Object>
 	//@ResponseBody List<Map<String, Object>>
@@ -59,18 +72,18 @@ public class CheckController {
 		return "/check/diagnosisGuide";
 	}
 	 
-	@PostMapping(value="/checkList", produces = "application/json")
-	public @ResponseBody List<Map<String, Object>> checkList(
-			 @RequestParam(value="bigcate", defaultValue = "engine", required=false) String bigcate) {
-		
-		System.out.println("checkList 오버로딩 CheckController 호출"); 
-		System.out.println("대분류 : " + bigcate);
-		 
-		List<Map<String, Object>> checkMap = checkService.getCheckList(bigcate);
-		System.out.println(checkMap + " <-checkMap checkList CheckController.java");
-		 
-
-		return checkMap;
-	}
+//	@PostMapping(value="/checkList", produces = "application/json")
+//	public @ResponseBody List<Map<String, Object>> checkList(
+//			 @RequestParam(value="bigcate", defaultValue = "engine", required=false) String bigcate) {
+//		
+//		System.out.println("checkList 오버로딩 CheckController 호출"); 
+//		System.out.println("대분류 : " + bigcate);
+//		 
+//		List<Map<String, Object>> checkMap = checkService.getCheckList(bigcate);
+//		System.out.println(checkMap + " <-checkMap checkList CheckController.java");
+//		 
+//
+//		return checkMap;
+//	}
  
 }

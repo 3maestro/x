@@ -52,9 +52,9 @@
 		GROUP by
 			arrayAsk.ri_code
 	</select>
-		
-	<select id="getCheckList" parameterType="String" 
-	 resultType="com.cafe24.radev.vo.Check">
+	
+	<select id="getBasicCheckList" parameterType="String" 
+	 resultType="com.cafe24.radev.vo.BasicCheck">
 		SELECT
 			b.ck_big_name as ckBigName,
 			m.ck_mid_name as ckMidName
@@ -65,8 +65,7 @@
 		ON 
 			b.ck_big_code = m.ck_big_code
 		WHERE 
-			b.ck_big_name = #{bigcate}
+			b.ck_big_name = #{bigCate}
 	</select>
-	
 			
 </mapper>

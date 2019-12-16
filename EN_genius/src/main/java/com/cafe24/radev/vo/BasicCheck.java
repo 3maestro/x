@@ -1,10 +1,10 @@
 package com.cafe24.radev.vo;
 
-public class Check {
+public class BasicCheck {
 	
 	private String ckBigName;
 	private String ckMidName;
-
+	
 	public String getCkBigName() {
 		return ckBigName;
 	}
@@ -17,10 +17,9 @@ public class Check {
 	public void setCkMidName(String ckMidName) {
 		this.ckMidName = ckMidName;
 	}
+	
 	@Override
 	public String toString() {
-		return "Check [ckBigName=" + ckBigName + ", ckMidName=" + ckMidName + "]";
+		return "BasicCheck [ckBigName=" + ckBigName + ", ckMidName=" + ckMidName + "]";
 	}
-
-
 }

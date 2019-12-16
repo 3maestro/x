@@ -1,6 +1,5 @@
 package com.cafe24.radev.service;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.cafe24.radev.mapper.CheckMapper;
 import com.cafe24.radev.vo.AskCheck;
-import com.cafe24.radev.vo.Check;
+import com.cafe24.radev.vo.BasicCheck;
 import com.cafe24.radev.vo.RoutineCheck;
 
 @Service
@@ -142,32 +141,50 @@ public class CheckService {
 		return oxList;
 	}
 	
-	
-	
-	public List<Map<String, Object>> getCheckList(String bigcate){
-		System.out.println("getCheckList CheckService 호출");
-		System.out.println(bigcate + " <-bigCate getCheckList CheckService.java");
+	public List<String> getBasicCheckList(String bigCate) {
 		
-		List<Map<String, Object>> listMap = new ArrayList<Map<String, Object>>();
+		System.out.println("getBasicCheckList CheckService 호출");
+		System.out.println(bigCate + " <-bigCate getBasicCheckList CheckService.java");
 		
-		List<Check> listCheck = checkMapper.getCheckList(bigcate);
-		System.out.println(listCheck.size() + " <-사이즈 CheckService");
+		List<BasicCheck> list = checkMapper.getBasicCheckList(bigCate);
+		System.out.println(list + " <-list getBasicCheckList CheckService.java");
+		System.out.println(list.size() + " <-list.size() getBasicCheckList");
 		
-		//List<String> listMidName = new ArrayList<String>();
-		Map<String, Object> mapMidName = null;
+		List<String> midCateList = new ArrayList<String>();;
 		
-		for(int i=0; i<listCheck.size(); i++) {
-			Check check = listCheck.get(i);
-			String midName = check.getCkMidName();
-			System.out.println(midName + " <-midName getCheckList CheckService.java");	
-			mapMidName = new HashMap<String, Object>();
-			mapMidName.put(bigcate, midName);
-			
-			listMap.add(mapMidName);
+		for(int i=0; i<list.size(); i++) {
+			BasicCheck basicCaheck = list.get(i);
+			midCateList.add(basicCaheck.getCkMidName());
 		}
 		
-		return listMap;
+		return midCateList;
+	
 	}
+	
+//	public List<Map<String, Object>> getCheckList(String bigcate){
+//		System.out.println("getCheckList CheckService 호출");
+//		System.out.println(bigcate + " <-bigCate getCheckList CheckService.java");
+//		
+//		List<Map<String, Object>> listMap = new ArrayList<Map<String, Object>>();
+//		
+//		List<Check> listCheck = checkMapper.getCheckList(bigcate);
+//		System.out.println(listCheck.size() + " <-사이즈 CheckService");
+//		
+//		//List<String> listMidName = new ArrayList<String>();
+//		Map<String, Object> mapMidName = null;
+//		
+//		for(int i=0; i<listCheck.size(); i++) {
+//			Check check = listCheck.get(i);
+//			String midName = check.getCkMidName();
+//			System.out.println(midName + " <-midName getCheckList CheckService.java");	
+//			mapMidName = new HashMap<String, Object>();
+//			mapMidName.put(bigcate, midName);
+//			
+//			listMap.add(mapMidName);
+//		}
+//		
+//		return listMap;
+//	}
 	
 }
 
