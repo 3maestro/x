@@ -21,4 +21,6 @@ public interface UserMapper {
 	CarFactory adminLogin(CarFactory carFactory);
 	
 	List<CarFactory> carFactoryList();
+	
+	String selectImage(String bsCode);
 }

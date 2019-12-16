@@ -69,6 +69,13 @@
 			FROM 
 				 business_tb
 		</select>
+		<select id="selectImage" resultType="String">
+			SELECT 
+				image_file_name 
+			from 
+				image_file_tb 
+			WHERE bs_code= #{bsCode};
+		</select>
 		<select id="imageList" resultMap="imageFileResultMap">
 			SELECT 
 				* 

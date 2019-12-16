@@ -89,6 +89,10 @@ public class UserService {
 	public List<CarFactory> carFactoryList(){
 		return userMapper.carFactoryList();
 	}
+	
+	public String selectImage(String bsCode) {
+		return userMapper.selectImage(bsCode);
+	}
 /********************************************************************************************************로그인*/
 
 	public Map<String,Object> adminLogin(CarFactory carFactory) {

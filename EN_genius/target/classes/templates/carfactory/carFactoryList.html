@@ -15,7 +15,7 @@
 			
 			$("#check-all").click(function(){
 				var isCheck = $(this).is(':checked');
-				var checklist = $('#check-list');
+				var checklist = $('.check-list');
 				console.log(isCheck)
 				if(isCheck){
 					checklist.prop('checked',true);
@@ -23,7 +23,16 @@
 					checklist.prop('checked',false);
 				}
 			});
+			
+
 		});
+			function popupOpen(){
+
+				var popUrl = "/static/와.jpg";	//팝업창에 출력될 페이지 URL
+
+				var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+					window.open(popUrl,"1",popOption);
+				}
 	</script>
 	</th:block>
 	
@@ -46,12 +55,13 @@
                           <th>사업장</th>
                           <th>연락처</th>
                           <th>승인여부</th>
+                          <th>첨부파일</th>
                       </tr>
                   </thead>
                   <tbody th:each="c : ${carfactorylist}">
                     <tr>
                         <td class="a-center ">
-                          <input type="checkbox" id="check-list">
+                          <input type="checkbox" class="check-list">
                         </td>
                         <!-- <th scope="row">1</th> -->
                         <td><span class="name" th:text="${c.bsName}"></span></td>
@@ -59,6 +69,8 @@
                         <td><span class="nana" th:text="${c.bsAddr}"></span></td>
                         <td><span class="name" th:text="${c.bsTelephone}"></span></td>
                         <td><span class="name" th:text="${c.bsCheck}"></span></td>
+                        <td><a href="javascript:popupOpen();">11</a></td>
+<!--                         <td><a th:href="@{/selectImage(bsCode=${c.bsCode})}">서류</a></td> -->
                     </tr>
                 </tbody>
             </table>

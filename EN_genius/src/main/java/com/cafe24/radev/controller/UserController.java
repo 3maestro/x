@@ -79,6 +79,12 @@ public class UserController {
 		model.addAttribute("carfactorylist", userService.carFactoryList());
 		return "/carfactory/carFactoryList";
 	}
+	
+	@GetMapping("/selectImage")
+	public String selectImage(@RequestParam(value = "bsCode")String bsCode) {
+		System.out.println("코드값" + bsCode);
+		return "";
+	}
 /********************************************************************************************************로그인*/	
 	/**
 	 * 관리자 로그인처리
