@@ -9,7 +9,14 @@ public class Part {
 	private String partPrice;
 	private String partWrite;
 	private String partUpdateDate;
+	private String factory;
 	
+	public String getFactory() {
+		return factory;
+	}
+	public void setFactory(String factory) {
+		this.factory = factory;
+	}
 	public String getPartNumber() {
 		return partNumber;
 	}
