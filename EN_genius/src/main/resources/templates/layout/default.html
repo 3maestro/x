@@ -8,27 +8,33 @@
 
 <body>
     <!-- Left Panel -->
-    <div th:replace="fragments/leftmenu :: leftmenuFragment"></div>	
+    <aside th:replace="fragments/leftmenu :: leftmenuFragment"></aside>	
     <!-- /#left-panel -->
     
     <!-- Right Panel -->
+    
     <div id="right-panel" class="right-panel">
         <!-- Header-->
-        <div th:replace="fragments/header :: headerFragment"></div>
+        <header th:replace="fragments/header :: headerFragment"></header>
+        
+        <!-- Dashboard -->
+        <div th:replace="fragments/dashboard :: dashboardFragment"></div>
+		<!-- /#Dashboard -->
+
         <!-- /#header -->
         <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            
-			<th:block layout:fragment="customContents"></th:block>
-       
-            <!-- .animated -->
+	    <div class="content">
+	        <div class="animated fadeIn">
+	            <!-- Animated -->
+	            
+				<th:block layout:fragment="customContents"></th:block>
+	       
+	            <!-- .animated -->
+	        </div>
         </div>
         <!-- /.content -->
         
-       <!--  <div class="clearfix">
-        
-        </div> -->
+       <div class="clearfix"></div>
         
         <!-- Footer -->
         

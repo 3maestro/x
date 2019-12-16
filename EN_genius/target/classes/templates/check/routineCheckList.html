@@ -41,7 +41,7 @@
                 	//console.log(checked)
                 });
 				
-				if(check == "undefined" || check == null){
+				if(check == "undefined" || check == ''){
 					alert('항목을 체크 하시오.')
 				}else{		
 					console.log(check + '<-뭐니')
@@ -65,10 +65,8 @@
 							//&& checkResult == true 
 						//console.log('체크 됐다!!!!!!!')
 						
+
 						if(data != ""){
-							
-							
-							
 							for(var i=0; i<data.length; i++){
 								var getRiCode = data[i];
 								console.log(getRiCode + "getRiCode");
@@ -99,7 +97,7 @@
 // 										$("input[type='checkbox']:checked").empty();
 // 	 									$("input[type='checkbox']:checked").remove();
 									}
-									else if(getRiCode == ''){
+									else if(getRiCode == '' || getRiCode == null || data == "" || checkResult == false){
 										td.eq(5).text('확인필요')
 										console.log('확인필요')
 							
@@ -108,7 +106,25 @@
 // 									$("input[type='cheeckbox']:checked").empty();
 //  									$("input[type='checkbox']:checked").remove();
 								})
-								
+							}		
+						}
+					})
+						
+					request.fail(function( jqXHR, textStatus ) {
+					  alert( "Request failed: " + textStatus );
+					});	 			
+				}
+			})
+		})
+	
+		$(document).on('click','#checkall',function(){
+			if($("#checkall").prop("checked")){
+			    $("input[name=check]").prop("checked",true);
+			}else{
+				$("input[name=check]").prop("checked",false);
+			}
+		})
+										
 		  							//console.log($('td[th:value]') + "val")
 								
 		  							//console.log($('#a').val() + "]]][][]")
@@ -141,26 +157,6 @@
 	// 								$("input[type='checkbox']:checked").remove();
 	// 								//$('#cc').html('<td>교환필요<td>')
 	// 							}	
-							}		
-						}
-						
-					})
-						
-					request.fail(function( jqXHR, textStatus ) {
-					  alert( "Request failed: " + textStatus );
-					});	 			
-				}
-			})
-		})
-	
-		$(document).on('click','#checkall',function(){
-			if($("#checkall").prop("checked")){
-			    $("input[name=check]").prop("checked",true);
-			}else{
-				$("input[name=check]").prop("checked",false);
-			}
-		})
-		
 	</script>
 </th:block>	
       

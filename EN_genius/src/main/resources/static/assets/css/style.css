@@ -821,7 +821,7 @@ aside.left-panel {
 
 /* Right panel */
 .right-panel {
-  background: #f1f2f7;
+  background: #f1f1f1;
   margin-left: 280px;
   margin-top: 55px; }
   .right-panel .top-left {
@@ -878,7 +878,7 @@ aside.left-panel {
   padding-top: 7px; }
 .right-panel .navbar-header {
   width: 100%;
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 0 1.25em 0 0; }
   .right-panel .navbar-header > a {
     display: inline-block; }
