@@ -8,9 +8,14 @@
 	</th:block>
 	<th:block layout:fragment="customScript">	
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script type="text/javascript">
-	 
-/*  		$(document).ready(function(){
+	<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+
+			var result = /*[[ ${lo} ]]*/;
+    
+			alert(result);
+			
+	  		$(document).ready(function(){
 		
  			$('#formCheck').click(function(){
 				var bossIdCheck = $('input[name="bossId"]');
@@ -46,8 +51,8 @@
 				});
 	 
 			});
-		}); */
-	 
+		});
+/*]]*/	 
 	</script>
 	</th:block>
 	
