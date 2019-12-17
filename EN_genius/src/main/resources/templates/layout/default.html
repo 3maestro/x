@@ -8,29 +8,33 @@
 
 <body>
     <!-- Left Panel -->
-    <div th:replace="fragments/leftmenu :: leftmenuFragment"></div>	
+    <aside th:replace="fragments/leftmenu :: leftmenuFragment"></aside>	
     <!-- /#left-panel -->
     
     <!-- Right Panel -->
+    
     <div id="right-panel" class="right-panel">
         <!-- Header-->
-        <div th:replace="fragments/header :: headerFragment"></div>
+        <header th:replace="fragments/header :: headerFragment"></header>
+        
+        <!-- Dashboard -->
+        <div th:replace="fragments/dashboard :: dashboardFragment"></div>
+		<!-- /#Dashboard -->
+
         <!-- /#header -->
         <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            
-            <div id="rightcolumn">
+	    <div class="content">
+	        <div class="animated fadeIn">
+	            <!-- Animated -->
+	            
 				<th:block layout:fragment="customContents"></th:block>
-			</div>
-       
-            <!-- .animated -->
+	       
+	            <!-- .animated -->
+	        </div>
         </div>
         <!-- /.content -->
         
-        <div class="clearfix">
-        
-        </div>
+       <div class="clearfix"></div>
         
         <!-- Footer -->
         
@@ -38,7 +42,6 @@
         
         <!-- /.site-footer -->
     </div>
-</body>
     <!-- /#right-panel -->
 
     <!-- Scripts -->
@@ -67,4 +70,5 @@
     <script src="assets/js/init/fullcalendar-init.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  -->
+</body>
 </html>
