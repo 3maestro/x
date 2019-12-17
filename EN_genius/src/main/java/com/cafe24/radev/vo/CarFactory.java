@@ -8,7 +8,7 @@ package com.cafe24.radev.vo;
 public class CarFactory {
 	
 	private String bsCode;
-	private String level;
+	private String bsLevel;
 	private String bossId;
 	private String bossPw;
 	private String bossName;
@@ -27,11 +27,11 @@ public class CarFactory {
 	public void setBsCode(String bsCode) {
 		this.bsCode = bsCode;
 	}
-	public String getLevel() {
-		return level;
+	public String getBsLevel() {
+		return bsLevel;
 	}
-	public void setLevel(String level) {
-		this.level = level;
+	public void setBsLevel(String bsLevel) {
+		this.bsLevel = bsLevel;
 	}
 	public String getBossId() {
 		return bossId;
@@ -107,7 +107,7 @@ public class CarFactory {
 	}
 	@Override
 	public String toString() {
-		return "CarFactory [bsCode=" + bsCode + ", level=" + level + ", bossId=" + bossId + ", bossPw=" + bossPw
+		return "CarFactory [bsCode=" + bsCode + ", bsLevel=" + bsLevel + ", bossId=" + bossId + ", bossPw=" + bossPw
 				+ ", bossName=" + bossName + ", bossPhonenum=" + bossPhonenum + ", bossEmail=" + bossEmail + ", bsName="
 				+ bsName + ", bsNumber=" + bsNumber + ", bsAddr=" + bsAddr + ", bsTelephone=" + bsTelephone
 				+ ", bsRegistration=" + bsRegistration + ", bsWriter=" + bsWriter + ", bsCheck=" + bsCheck + "]";

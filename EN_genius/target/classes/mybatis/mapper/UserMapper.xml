@@ -5,7 +5,7 @@
 	<mapper namespace="com.cafe24.radev.mapper.UserMapper">
 		<resultMap type="com.cafe24.radev.vo.CarFactory" id="carFactoryResultMap">
 			<result property="bsCode" 			column="bs_code"/>
-			<result property="level" 			column="level"/>
+			<result property="bsLevel" 			column="bs_level"/>
 			<result property="bossId" 			column="boss_id"/>
 			<result property="bossPw"   		column="boss_pw"/>
 			<result property="bossName"  		column="boss_name"/>

@@ -46,7 +46,7 @@ public class UserController {
 	}
 	
 	/**
-	 * 회원가입 폼에서 받아 온 값으로 처리과정	
+	 * 회원가입 폼에서 받아 온 값으로 사업장 등록 처리과정	
 	 * @param carFactory
 	 * @param bs_docu
 	 * @param redirectAttributes
@@ -65,7 +65,11 @@ public class UserController {
 		 
 		return "redirect:/index";
 	}
-	@GetMapping("/loginForm")		//로그인폼
+	/**
+	 * 로그인폼 화면 이동
+	 * @return
+	 */
+	@GetMapping("/loginForm")		
 	public String loingForm() {
 		return "/login/login";
 	}
@@ -79,19 +83,28 @@ public class UserController {
 		model.addAttribute("carfactorylist", userService.carFactoryList());
 		return "/carfactory/carFactoryList";
 	}
-	
+	/**
+	 * 사업장 리스트 내 팝업으로 서류 이미지 띄우기
+	 * @param bsCode
+	 * @param model
+	 * @return
+	 */
 	@PostMapping("/selectImage")
 	public @ResponseBody String selectImage(@RequestParam(value = "bsCode") String bsCode, Model model) {
 		System.out.println("코드값" + bsCode);
-		System.out.println(userService.selectImage(bsCode));		
+		//System.out.println(userService.selectImage(bsCode));		
 		return userService.selectImage(bsCode);
 	}
+	/**
+	 * 사업장 리스트에서 체크한 값들 승인처리
+	 * @param bsCode
+	 * @return
+	 */
 	
-	@GetMapping("/approvalCheck")
-	public String aaa(@RequestParam(value = "bsCode") String[] bsCode) {
-		userService.approvalCheck(bsCode);
-		return "/carfactory/carFactoryList";
-	}
+	  @GetMapping("/approvalCheck") public String aaa(@RequestParam(value =
+	  "bsCode") String[] bsCode) { userService.approvalCheck(bsCode); return
+	  "/carfactory/carFactoryList"; }
+	 
 /********************************************************************************************************로그인*/	
 	/**
 	 * 관리자 로그인처리
@@ -102,20 +115,26 @@ public class UserController {
 	 */
 	@PostMapping("/Adminlogin")
 	public String adminLogin(CarFactory carFactory, HttpSession session, Model model) {
-		System.out.println(carFactory.toString());						
+		System.out.println(carFactory.toString());		
 		Map<String,Object> map = userService.adminLogin(carFactory);
 		String re = (String)map.get("re");
 		CarFactory c = (CarFactory)map.get("login");	
-		if(re != "login") {
+	
+		if("login".equals(re)) {
+			if("관리자".equals(c.getBsWriter())) {
+				session.setAttribute("SLEVEL", c.getBsLevel());
+				session.setAttribute("SID", c.getBossId());
+				session.setAttribute("SCODE", c.getBsCode());
+				session.setAttribute("SWRITER", c.getBsWriter());
+			}else {
+				model.addAttribute("lo", "관리자 로그인 창입니다");
+				return "login/login";
+			}
+		}else {
 			model.addAttribute("lo", re);
 			//session.setAttribute("lo", re);
 			return "/login/login";
-		}else{
-			session.setAttribute("SLEVEL", c.getLevel());
-			session.setAttribute("SID", c.getBossId());
-			session.setAttribute("SCODE", c.getBsCode());
-			session.setAttribute("SWRITER", c.getBsWriter());
-		}
+		}		
 		return "redirect:/";
 	}
 
@@ -126,23 +145,28 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping("/Bosslogin")
-	public String bossLogin(CarFactory carFactory, HttpSession session) { 
+	public String bossLogin(CarFactory carFactory, HttpSession session, Model model) { 
 		System.out.println(carFactory.toString());				
 				
 		Map<String,Object> map = userService.adminLogin(carFactory);
 		System.out.println(userService.adminLogin(carFactory).toString()+"<<1번확인");
 		String re = (String)map.get("re");
-		CarFactory c = (CarFactory)map.get("login");
+		CarFactory c = (CarFactory)map.get("login");	
 		
-		if(re != "login") {
-			session.setAttribute("lo", re);
+		if("login".equals(re)) {
+			if("박연우".equals(c.getBsWriter())) {
+				session.setAttribute("SID", c.getBossId());
+				session.setAttribute("SCODE", c.getBsCode());
+				session.setAttribute("SNAME", c.getBossName());
+				session.setAttribute("SWRITER", c.getBsWriter());
+			}else {
+				model.addAttribute("lo", "사장님 로그인 창입니다");
+				return "login/login";
+			}
+		}else {
+			model.addAttribute("lo", re);
 			return "/login/login";
-		}else{
-			session.setAttribute("SID", c.getBossId());
-			session.setAttribute("SCODE", c.getBsCode());
-			session.setAttribute("SNAME", c.getBossName());
-			session.setAttribute("SWRITER", c.getBsWriter());
-		}
+		}		
 		return "redirect:/";
 	} 
 
@@ -153,7 +177,7 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping("/Employeelogin")
-	public String employeeLogin(Employee employee, HttpSession session) { 
+	public String employeeLogin(Employee employee, HttpSession session, Model model) { 
 		System.out.println(employee.toString()+"<-----test");				
 		
 		Map<String,Object> map = userService.employeeLogin(employee);
@@ -162,8 +186,8 @@ public class UserController {
 		Employee e = (Employee)map.get("login");
 		
 		if(re != "login") {
-			session.setAttribute("lo", re);
-			return "/index";
+			model.addAttribute("lo", re);
+			return "/login/login";
 		}else{
 			session.setAttribute("SCODE", e.getBsCode());
 			session.setAttribute("ECODE", e.getEmployeeCode());
