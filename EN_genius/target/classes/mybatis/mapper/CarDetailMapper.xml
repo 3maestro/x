@@ -35,15 +35,13 @@
 
 	</resultMap>
 	
-	<!-- Datail insert -->
+		<!-- Datail insert -->
 	<insert id="getDetailInsert" parameterType="com.cafe24.radev.vo.VoCarDetail">
 	INSERT INTO customer_car_info_table
-		(customer_car_info_code, bs_code, customer_code, customer_car_number, 
-		vendor_code, rc_code, car_production_year, car_registration_date, last_distance_driven, 
-		last_visit_date, customer_car_info_writer, customer_car_info_date)
+		(customer_car_info_code, bs_code, customer_code, customer_car_number, vendor_code, rc_code, car_production_year, car_registration_date, last_distance_driven, last_visit_date, customer_car_info_writer, customer_car_info_date)
 	VALUES 
-		('#{customerCarInfoCode}', 
-		'cp001', '최영진', '${customerCarNumber}', '${carProductionYear}', '${vendorCode}', NOW(), NOW(), '${rcCode}', NOW(), 'id002', NOW())
+		('#{yearCarCode}', 
+		'', '여누공업사', '최영진', '${carProductionYear}', '${}', NOW(), NOW(), '${}', NOW(), '${}', NOW())
 	</insert>
 	
 	
