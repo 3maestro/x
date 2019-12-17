@@ -107,7 +107,7 @@
                 <includes>
                     <include>**/*.xml</include>
                 </includes>
-            </rsesource>
+            </resource>
             <resource>
                 <directory>src/main/resources</directory>
             </resource>
